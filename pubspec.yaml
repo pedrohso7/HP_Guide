@@ -1,5 +1,5 @@
-name: clean_architeture_project
-description: Clean arch project template to future projects.
+name: hp_guide
+description: App to show some info's about Harry Potter characters.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -11,7 +11,6 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_dotenv: ^5.1.0
-  get_storage: ^2.1.1
   flutter_modular: ^6.3.2
   dio: ^5.3.3
   equatable: ^2.0.5
