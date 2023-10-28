@@ -60,20 +60,75 @@ class CharacterModel extends Character {
   }
 
   factory CharacterModel.fromMap(Map map) {
+    CharacterHouse getCharacterHouse(String value) {
+      final stringMap = <String, CharacterHouse>{
+        'ravenclaw': CharacterHouse.ravenclaw,
+        'gryffindor': CharacterHouse.gryffindor,
+        'slytherin': CharacterHouse.slytherin,
+        'hufflepuff': CharacterHouse.hufflepuff,
+      };
+
+      return stringMap[value] ?? CharacterHouse.other;
+    }
+
+    CharacterGender getCharacterGender(String value) {
+      final stringMap = <String, CharacterGender>{
+        'male': CharacterGender.male,
+        'female': CharacterGender.female,
+      };
+
+      return stringMap[value] ?? CharacterGender.other;
+    }
+
+    CharacterCategory getCharacterCategory(bool isStudent, bool isStaff) {
+      if (isStudent) {
+        return CharacterCategory.student;
+      }
+      if (isStaff) {
+        return CharacterCategory.staff;
+      }
+      return CharacterCategory.other;
+    }
+
+    CharacterSpecies getCharacterSpecies(String value) {
+      final stringMap = <String, CharacterSpecies>{
+        'human': CharacterSpecies.human,
+        'half-human': CharacterSpecies.halfHuman,
+        'goblin': CharacterSpecies.goblin,
+        'ghost': CharacterSpecies.ghost,
+        'half-giant': CharacterSpecies.halfGiant,
+        'werewolf': CharacterSpecies.werewolf,
+        'cat': CharacterSpecies.cat,
+        'owl': CharacterSpecies.owl,
+        'poltergeist': CharacterSpecies.poltergeist,
+        'three-headed dog': CharacterSpecies.poltergeist,
+        'dragon': CharacterSpecies.dragon,
+        'centaur': CharacterSpecies.centaur,
+        'house-elf': CharacterSpecies.houseElf,
+        'acromantula': CharacterSpecies.acromantula,
+        'hippogriff': CharacterSpecies.hippogriff,
+        'giant': CharacterSpecies.giant
+      };
+
+      return stringMap[value] ?? CharacterSpecies.other;
+    }
+
     return CharacterModel(
       map["id"],
       map["name"],
-      CharacterGender.fromString(map["gender"]),
-      CharacterHouse.fromString(map["house"]),
-      CharacterSpecies.fromString(map['species']),
+      getCharacterGender(map["gender"]),
+      getCharacterHouse(map["house"]),
+      getCharacterSpecies(map['species']),
       map["dateOfBirth"],
       map["yearOfBirth"],
       map["wizard"],
       map["ancestry"],
       map["wand"],
       map["patronus"],
-      CharacterCategory.fromBoolValues(
-          map['hogwartsStudent'], map['hogwartsStaff']),
+      getCharacterCategory(
+        map['hogwartsStudent'],
+        map['hogwartsStaff'],
+      ),
       map["actor"],
       map["image"],
     );
