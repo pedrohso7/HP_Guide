@@ -55,6 +55,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
 
   void _handleNavigateToCharacterDetailsPageEvent(
       NavigateToCharacterDetailsPageEvent event) async {
-    Modular.to.pushNamed('${AppRoutesPaths.loginPath}/${event.id}');
+    Modular.to.pushNamed('${AppRoutesPaths.characterDetails}/${event.id}');
   }
 }
