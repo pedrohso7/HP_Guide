@@ -10,7 +10,7 @@ class GetAllCharacters implements UseCase<Future<List<Character>>, NoParams> {
   @override
   Future<List<Character>> call(NoParams params) async {
     final IResult<List<Character>> response =
-        await repository.getAllCharacters(params);
+        await repository.getAllCharacters();
 
     if (response.isError) {
       throw (response as ErrorResult).exception;

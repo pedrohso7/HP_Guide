@@ -11,7 +11,7 @@ class GetCharactersByHouse
   @override
   Future<List<Character>> call(GetCharactersByHouseParams params) async {
     final IResult<List<Character>> response =
-        await repository.getCharactersByHouse(params);
+        await repository.getCharactersByHouse(params.house.name);
 
     if (response.isError) {
       throw (response as ErrorResult).exception;

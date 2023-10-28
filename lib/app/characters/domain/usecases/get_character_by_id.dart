@@ -11,7 +11,7 @@ class GetCharacterById
   @override
   Future<Character> call(GetCharacterByIdParams params) async {
     final IResult<Character> response =
-        await repository.getCharacterById(params);
+        await repository.getCharacterById(params.id);
 
     if (response.isError) {
       throw (response as ErrorResult).exception;
