@@ -12,7 +12,7 @@ abstract class ICharactersRemoteDataSource {
 }
 
 class CharactersRemoteDataSource implements ICharactersRemoteDataSource {
-  final HPApiClient client;
+  final IHPApiClient client;
   const CharactersRemoteDataSource(this.client);
 
   @override

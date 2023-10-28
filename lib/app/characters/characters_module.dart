@@ -16,7 +16,7 @@ class CharactersModule extends Module {
     //Data Sources
     i.addLazySingleton<ICharactersRemoteDataSource>(
       () => CharactersRemoteDataSource(
-        Modular.get<HPApiClient>(),
+        Modular.get<IHPApiClient>(),
       ),
     );
 
