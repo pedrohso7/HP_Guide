@@ -5,17 +5,17 @@ import '../../domain/entities/character.dart';
 class CharacterModel extends Character {
   const CharacterModel(
     final String? id,
-    final String name,
-    final CharacterGender gender,
+    final String? name,
+    final CharacterGender? gender,
     final CharacterHouse? house,
-    final CharacterSpecies species,
+    final CharacterSpecies? species,
     final String? dateOfBirth,
     final String? yearOfBirth,
-    final bool isWizard,
+    final bool? isWizard,
     final String? ancestry,
     final Wand? wand,
     final String? patronus,
-    final CharacterCategory category,
+    final CharacterCategory? category,
     final String? actorName,
     final String? image,
   ) : super(
