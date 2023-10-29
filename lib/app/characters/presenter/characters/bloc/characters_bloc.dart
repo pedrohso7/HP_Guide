@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hp_guide/core/errors/remote_client_exception.dart';
 
+import '../../../../../core/errors/remote_client_exception.dart';
 import '../../../../../core/usecases/usecase.dart';
 import '../../../../../core/constants/routes/routes.dart';
 import '../../../domain/entities/character.dart';
