@@ -7,7 +7,7 @@ class Character extends Equatable {
   final CharacterHouse? house;
   final CharacterSpecies? species;
   final String? dateOfBirth;
-  final String? yearOfBirth;
+  final int? yearOfBirth;
   final bool? isWizard;
   final String? ancestry;
   final Wand? wand;
@@ -55,7 +55,7 @@ class Character extends Equatable {
 class Wand extends Equatable {
   final String? wood;
   final String? core;
-  final String? size;
+  final int? size;
   const Wand({
     required this.wood,
     required this.core,

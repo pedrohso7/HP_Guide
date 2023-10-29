@@ -10,7 +10,7 @@ class CharacterModel extends Character {
     final CharacterHouse? house,
     final CharacterSpecies? species,
     final String? dateOfBirth,
-    final String? yearOfBirth,
+    final int? yearOfBirth,
     final bool? isWizard,
     final String? ancestry,
     final Wand? wand,
@@ -113,6 +113,8 @@ class CharacterModel extends Character {
       return stringMap[value] ?? CharacterSpecies.other;
     }
 
+    final wand = WandModel.fromMap(map['wand']);
+
     return CharacterModel(
       map["id"],
       map["name"],
@@ -123,7 +125,7 @@ class CharacterModel extends Character {
       map["yearOfBirth"],
       map["wizard"],
       map["ancestry"],
-      map["wand"],
+      wand,
       map["patronus"],
       getCharacterCategory(
         map['hogwartsStudent'],
@@ -138,4 +140,24 @@ class CharacterModel extends Character {
 
   factory CharacterModel.fromJson(String source) =>
       CharacterModel.fromMap(json.decode(source));
+}
+
+class WandModel extends Wand {
+  const WandModel(
+    final String? wood,
+    final String? core,
+    final int? size,
+  ) : super(
+          wood: wood,
+          core: core,
+          size: size,
+        );
+
+  factory WandModel.fromMap(Map map) {
+    return WandModel(
+      map["wood"],
+      map["core"],
+      map['length'],
+    );
+  }
 }
