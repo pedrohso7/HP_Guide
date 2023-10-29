@@ -19,11 +19,14 @@ class CharactersRemoteDataSource implements ICharactersRemoteDataSource {
   Future<List<Character>> getAllCharacters() async {
     try {
       final Response result = await client.dio.get('characters');
-      final characters = result.data.map((character) {
-        CharacterModel.fromMap(character);
-      }).toList();
+
+      List<Character> characters = [];
+      for (final character in result.data) {
+        characters.add(CharacterModel.fromMap(character));
+      }
+
       return characters;
-    } catch (e) {
+    } catch (_) {
       throw RemoteClientException('Erro ao realizar consulta');
     }
   }
@@ -34,7 +37,7 @@ class CharactersRemoteDataSource implements ICharactersRemoteDataSource {
       final Response result = await client.dio.get('characters/$id');
 
       return CharacterModel.fromMap(result.data);
-    } catch (e) {
+    } catch (_) {
       throw RemoteClientException('Erro ao realizar consulta');
     }
   }
@@ -47,7 +50,7 @@ class CharactersRemoteDataSource implements ICharactersRemoteDataSource {
         CharacterModel.fromMap(character);
       }).toList();
       return characters;
-    } catch (e) {
+    } catch (_) {
       throw RemoteClientException('Erro ao realizar consulta');
     }
   }
