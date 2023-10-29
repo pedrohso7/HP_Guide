@@ -146,7 +146,7 @@ class WandModel extends Wand {
   const WandModel(
     final String? wood,
     final String? core,
-    final int? size,
+    final double? size,
   ) : super(
           wood: wood,
           core: core,
@@ -157,7 +157,7 @@ class WandModel extends Wand {
     return WandModel(
       map["wood"],
       map["core"],
-      map['length'],
+      map['length'] is int ? map['length'].toDouble() : map['length'],
     );
   }
 }

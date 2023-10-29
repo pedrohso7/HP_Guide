@@ -55,7 +55,7 @@ class Character extends Equatable {
 class Wand extends Equatable {
   final String? wood;
   final String? core;
-  final int? size;
+  final double? size;
   const Wand({
     required this.wood,
     required this.core,
