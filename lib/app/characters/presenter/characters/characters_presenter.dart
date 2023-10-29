@@ -20,6 +20,7 @@ class _CharactersPresenter extends State<CharactersPresenter> {
   @override
   void initState() {
     bloc = CharactersBloc.get(context);
+    bloc.add(FetchCharactersEvent());
     super.initState();
   }
 
