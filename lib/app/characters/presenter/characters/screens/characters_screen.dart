@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constants/theme/sizes.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../domain/entities/character.dart';
-import '../../widgets/characters_section.dart';
+import '../widgets/characters_section.dart';
 
 class CharactersScreen extends StatelessWidget {
   const CharactersScreen({

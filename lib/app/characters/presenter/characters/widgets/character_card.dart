@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/theme/colors.dart';
-import '../../../../core/constants/theme/sizes.dart';
-import '../../../../core/constants/theme/text_style.dart';
-import '../../../../core/widgets/filled_container.dart';
-import '../../domain/entities/character.dart';
+import '../../../../../core/constants/theme/colors.dart';
+import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
+import '../../../../../core/widgets/filled_container.dart';
+import '../../../domain/entities/character.dart';
 
 class CharacterCard extends StatelessWidget {
   final String name;

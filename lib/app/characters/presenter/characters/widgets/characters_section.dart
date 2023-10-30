@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/theme/sizes.dart';
-import '../../../../core/extensions/sized_box_extension.dart';
-import '../../domain/entities/character.dart';
+import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/extensions/sized_box_extension.dart';
+import '../../../domain/entities/character.dart';
 import 'character_card.dart';
 
 class CharactersSection extends StatelessWidget {
