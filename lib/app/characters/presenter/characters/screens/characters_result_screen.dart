@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/theme/sizes.dart';
-import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../domain/entities/character.dart';
 import '../../widgets/character_card.dart';
 
@@ -15,28 +14,36 @@ class CharactersSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
+    int crossAxisCount = (sizes.width / AppSizes.s152).floor();
     return Container(
       width: sizes.width,
       height: sizes.height,
       padding: const EdgeInsets.all(AppSizes.s16),
-      child: Column(
-        children: [
-          VerticalSpace.s16,
-          Expanded(
-            child: ListView.separated(
-              itemCount: characters.length,
-              itemBuilder: (context, index) {
-                return CharacterCard(
-                  name: characters[index].name!,
-                  image: characters[index].image!,
-                  house: characters[index].house,
-                  onTap: () => {},
-                );
-              },
-              separatorBuilder: (context, index) => VerticalSpace.s24,
+      child: Expanded(
+        child: Builder(builder: (context) {
+          if (characters.isEmpty) {
+            return const Center(
+              child: Text('Nenhum personagem com esse nome encontrado'),
+            );
+          }
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: AppSizes.s8,
+              mainAxisSpacing: AppSizes.s8,
+              childAspectRatio: AppSizes.s136 / AppSizes.s184,
             ),
-          ),
-        ],
+            itemCount: characters.length,
+            itemBuilder: (context, index) {
+              return CharacterCard(
+                name: characters[index].name!,
+                house: characters[index].house!,
+                image: characters[index].image!,
+                onTap: () => {},
+              );
+            },
+          );
+        }),
       ),
     );
   }
