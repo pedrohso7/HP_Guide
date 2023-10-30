@@ -26,7 +26,7 @@ class CharacterCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: AppSizes.s152,
-        height: AppSizes.s408,
+        height: AppSizes.s264,
         decoration: BoxDecoration(
           border: Border.all(
             color: AppColors.yellow,
