@@ -48,7 +48,7 @@ class CharactersModule extends Module {
     i.addLazySingleton(
       () => CharactersBloc(
         Modular.get<GetAllCharacters>(),
-        Modular.get<GetCharactersByHouse>(),
+        // Modular.get<GetCharactersByHouse>(),
       ),
     );
   }

@@ -6,6 +6,7 @@ import '../../../../core/constants/theme/text_style.dart';
 import '../../../../core/widgets/default_appbar.dart';
 import '../../../../core/widgets/default_text_input.dart';
 import 'bloc/characters_bloc.dart';
+import 'screens/characters_result_screen.dart';
 import 'screens/characters_screen.dart';
 
 class CharactersPresenter extends StatefulWidget {
@@ -54,6 +55,11 @@ class _CharactersPresenter extends State<CharactersPresenter> {
                     characters: state.allCharacters,
                     onPressLogoutButton: () => {},
                     onPressCharacter: () => {},
+                  );
+                }
+                if (state is CharactersSearch) {
+                  return CharactersSearchScreen(
+                    characters: state.onScreenCharacters,
                   );
                 }
                 if (state is CharactersLoading) {

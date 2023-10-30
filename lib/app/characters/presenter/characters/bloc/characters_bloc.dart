@@ -7,7 +7,7 @@ import '../../../../../core/usecases/usecase.dart';
 import '../../../../../core/constants/routes/routes.dart';
 import '../../../domain/entities/character.dart';
 import '../../../domain/usecases/get_all_characters.dart';
-import '../../../domain/usecases/get_characters_by_house.dart';
+// import '../../../domain/usecases/get_characters_by_house.dart';
 
 part 'characters_event.dart';
 part 'characters_state.dart';
@@ -15,17 +15,17 @@ part 'characters_state.dart';
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   static CharactersBloc get(context) => BlocProvider.of(context);
   final GetAllCharacters _getAllCharactersUseCase;
-  final GetCharactersByHouse _getCharactersByHouse;
+  // final GetCharactersByHouse _getCharactersByHouse;
   CharactersBloc(
     this._getAllCharactersUseCase,
-    this._getCharactersByHouse,
-  ) : super(const CharactersDefault([], [])) {
+    // this._getCharactersByHouse,
+  ) : super(const CharactersDefault([])) {
     on<CharactersEvent>((event, emit) async {
       if (event is FetchCharactersEvent) {
-        await _handleFetchCharactersEvent(state, emit);
+        await _handleFetchCharactersEvent(emit);
       }
-      if (event is FetchCharactersByHouseEvent) {
-        await _handleFetchCharactersByHouseEvent(event, state, emit);
+      if (event is SearchCharactersByName) {
+        await _handleSearchCharactersByName(event, state, emit);
       }
       if (event is NavigateToCharacterDetailsPageEvent) {
         _handleNavigateToCharacterDetailsPageEvent(event);
@@ -34,14 +34,13 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   }
 
   Future<void> _handleFetchCharactersEvent(
-      CharactersState state, Emitter<CharactersState> emit) async {
+      Emitter<CharactersState> emit) async {
     try {
       emit(CharactersLoading());
 
       final characters = await _getAllCharactersUseCase.call(NoParams());
-      final onScreenCharacters = characters.sublist(0, 10);
 
-      emit(CharactersDefault(characters, onScreenCharacters));
+      emit(CharactersDefault(characters));
     } on RemoteClientException catch (error) {
       emit(CharactersError(error.message));
     } catch (error) {
@@ -49,18 +48,35 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     }
   }
 
-  Future<void> _handleFetchCharactersByHouseEvent(
-      FetchCharactersByHouseEvent event,
-      CharactersState state,
-      Emitter<CharactersState> emit) async {
+  Future<void> _handleSearchCharactersByName(SearchCharactersByName event,
+      CharactersState state, Emitter<CharactersState> emit) async {
     try {
-      emit(CharactersLoading());
+      List<Character> onScreenCharacters = [];
 
-      final characters = await _getCharactersByHouse
-          .call(GetCharactersByHouseParams(event.house));
-      final onScreenCharacters = characters.sublist(0, 10);
+      if (state is CharactersDefault) {
+        final allCharacters = state.allCharacters;
 
-      emit(CharactersDefault(characters, onScreenCharacters));
+        onScreenCharacters = allCharacters
+            .where((element) =>
+                element.name!.toLowerCase().contains(event.value.toLowerCase()))
+            .toList();
+        emit(CharactersSearch(allCharacters, onScreenCharacters));
+        return;
+      }
+
+      if (state is CharactersSearch) {
+        final allCharacters = state.allCharacters;
+        if (event.value.isEmpty) {
+          emit(CharactersDefault(allCharacters));
+          return;
+        }
+
+        onScreenCharacters = allCharacters
+            .where((element) =>
+                element.name!.toLowerCase().contains(event.value.toLowerCase()))
+            .toList();
+        emit(CharactersSearch(allCharacters, onScreenCharacters));
+      }
     } on RemoteClientException catch (error) {
       emit(CharactersError(error.message));
     } catch (error) {

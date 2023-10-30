@@ -9,11 +9,24 @@ sealed class CharactersState extends Equatable {
 
 final class CharactersDefault extends CharactersState {
   final List<Character> allCharacters;
-  final List<Character> onScreenCharacters;
   const CharactersDefault(
+    this.allCharacters,
+  );
+
+  @override
+  List<Object> get props => [allCharacters];
+}
+
+final class CharactersSearch extends CharactersState {
+  final List<Character> allCharacters;
+  final List<Character> onScreenCharacters;
+  const CharactersSearch(
     this.allCharacters,
     this.onScreenCharacters,
   );
+
+  @override
+  List<Object> get props => [allCharacters, onScreenCharacters];
 }
 
 final class CharactersLoading extends CharactersState {}
