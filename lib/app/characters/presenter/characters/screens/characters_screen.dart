@@ -16,20 +16,29 @@ class CharactersScreen extends StatelessWidget {
   final VoidCallback onPressCharacter;
   final List<Character> characters;
 
-  List<Character> filterByCharacterHouse(CharacterHouse house) =>
+  static const List<String> _sections = [
+    'Estudantes',
+    'Funcionários',
+    'Casa Grifinória',
+    'Casa Sonserina',
+    'Casa Corvinal',
+    'Casa Lufa-Lufa',
+  ];
+
+  List<Character> _filterByCharacterHouse(CharacterHouse house) =>
       characters.where((e) => e.house == house).toList();
 
-  List<Character> filterByCharacterCategory(CharacterCategory category) =>
+  List<Character> _filterByCharacterCategory(CharacterCategory category) =>
       characters.where((e) => e.category == category).toList();
 
-  List<Character> filterBySection(String section) {
+  List<Character> _filterBySection(String section) {
     final stringMap = <String, List<Character>>{
-      'Estudantes': filterByCharacterCategory(CharacterCategory.student),
-      'Funcionários': filterByCharacterCategory(CharacterCategory.staff),
-      'Casa Grifinória': filterByCharacterHouse(CharacterHouse.gryffindor),
-      'Casa Sonserina': filterByCharacterHouse(CharacterHouse.slytherin),
-      'Casa Corvinal': filterByCharacterHouse(CharacterHouse.ravenclaw),
-      'Casa Lufa-Lufa': filterByCharacterHouse(CharacterHouse.hufflepuff),
+      'Estudantes': _filterByCharacterCategory(CharacterCategory.student),
+      'Funcionários': _filterByCharacterCategory(CharacterCategory.staff),
+      'Casa Grifinória': _filterByCharacterHouse(CharacterHouse.gryffindor),
+      'Casa Sonserina': _filterByCharacterHouse(CharacterHouse.slytherin),
+      'Casa Corvinal': _filterByCharacterHouse(CharacterHouse.ravenclaw),
+      'Casa Lufa-Lufa': _filterByCharacterHouse(CharacterHouse.hufflepuff),
     };
 
     return stringMap[section]!;
@@ -38,14 +47,6 @@ class CharactersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
-    final List<String> sections = [
-      'Estudantes',
-      'Funcionários',
-      'Casa Grifinória',
-      'Casa Sonserina',
-      'Casa Corvinal',
-      'Casa Lufa-Lufa',
-    ];
     return Container(
       width: sizes.width,
       height: sizes.height,
@@ -55,11 +56,11 @@ class CharactersScreen extends StatelessWidget {
           VerticalSpace.s16,
           Expanded(
             child: ListView.separated(
-              itemCount: sections.length,
+              itemCount: _sections.length,
               itemBuilder: (context, index) {
                 return CharactersSection(
-                  headerTitle: sections[index],
-                  characters: filterBySection(sections[index]),
+                  headerTitle: _sections[index],
+                  characters: _filterBySection(_sections[index]),
                   onPressSeeAllButton: () => {},
                   onPressCharacter: () => {},
                 );
