@@ -7,8 +7,8 @@ import '../../widgets/characters_section.dart';
 class CharactersScreen extends StatelessWidget {
   const CharactersScreen({
     Key? key,
-    required this.onPressLogoutButton,
     required this.characters,
+    required this.onPressLogoutButton,
     required this.onPressCharacter,
   }) : super(key: key);
 

@@ -14,6 +14,11 @@ class FetchCharactersByHouseEvent extends CharactersEvent {
   const FetchCharactersByHouseEvent(this.house);
 }
 
+class SearchCharactersByName extends CharactersEvent {
+  final String value;
+  const SearchCharactersByName(this.value);
+}
+
 class NavigateToCharacterDetailsPageEvent extends CharactersEvent {
   final String id;
   const NavigateToCharacterDetailsPageEvent(this.id);
