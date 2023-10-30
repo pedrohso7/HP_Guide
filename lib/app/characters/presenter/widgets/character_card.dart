@@ -9,33 +9,38 @@ import '../../domain/entities/character.dart';
 class CharacterCard extends StatelessWidget {
   final String name;
   final String image;
+  final VoidCallback onTap;
   final CharacterHouse? house;
 
   const CharacterCard({
     Key? key,
     required this.name,
     required this.image,
+    required this.onTap,
     this.house = CharacterHouse.other,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppSizes.s152,
-      height: AppSizes.s408,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: AppColors.yellow,
-          width: AppSizes.s2,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: AppSizes.s152,
+        height: AppSizes.s408,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: AppColors.yellow,
+            width: AppSizes.s2,
+          ),
+          borderRadius: BorderRadius.circular(AppSizes.s24),
         ),
-        borderRadius: BorderRadius.circular(AppSizes.s24),
-      ),
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          CharacterImageComponent(image: image),
-          CharacterTitleComponent(name: name),
-        ],
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            CharacterImageComponent(image: image),
+            CharacterTitleComponent(name: name),
+          ],
+        ),
       ),
     );
   }

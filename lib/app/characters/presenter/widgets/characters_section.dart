@@ -69,6 +69,7 @@ class CharactersSection extends StatelessWidget {
                   name: characters[index].name!,
                   image: characters[index].image!,
                   house: characters[index].house!,
+                  onTap: onPressCharacter,
                 );
               },
               separatorBuilder: (context, index) => HorizontalSpace.s8,
