@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/constants/theme/sizes.dart';
 import '../../../../core/constants/theme/text_style.dart';
 import '../../../../core/widgets/default_appbar.dart';
 import 'bloc/characters_bloc.dart';
@@ -23,8 +22,6 @@ class _CharactersPresenter extends State<CharactersPresenter> {
     super.initState();
   }
 
-  void _logout() => {};
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,33 +29,31 @@ class _CharactersPresenter extends State<CharactersPresenter> {
         title: 'Onboard',
         withBackButton: false,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: AppSizes.s16,
-          horizontal: AppSizes.s24,
-        ),
-        child: BlocBuilder<CharactersBloc, CharactersState>(
-          builder: (context, state) {
-            if (state is CharactersDefault) {
-              return CharactersScreen(onPressLogoutButton: _logout);
-            }
-            if (state is CharactersLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            if (state is CharactersError) {
-              return Center(
-                child: Text(
-                  state.message,
-                  style: AppTextStyles.subTitle,
-                ),
-              );
-            }
+      body: BlocBuilder<CharactersBloc, CharactersState>(
+        builder: (context, state) {
+          if (state is CharactersDefault) {
+            return CharactersScreen(
+              characters: state.allCharacters,
+              onPressLogoutButton: () => {},
+              onPressCharacter: () => {},
+            );
+          }
+          if (state is CharactersLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is CharactersError) {
+            return Center(
+              child: Text(
+                state.message,
+                style: AppTextStyles.subTitle,
+              ),
+            );
+          }
 
-            return const SizedBox.shrink();
-          },
-        ),
+          return const SizedBox.shrink();
+        },
       ),
     );
   }
