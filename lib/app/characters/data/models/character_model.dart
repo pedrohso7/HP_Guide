@@ -62,10 +62,10 @@ class CharacterModel extends Character {
   factory CharacterModel.fromMap(Map map) {
     CharacterHouse getCharacterHouse(String value) {
       final stringMap = <String, CharacterHouse>{
-        'ravenclaw': CharacterHouse.ravenclaw,
-        'gryffindor': CharacterHouse.gryffindor,
-        'slytherin': CharacterHouse.slytherin,
-        'hufflepuff': CharacterHouse.hufflepuff,
+        'Ravenclaw': CharacterHouse.ravenclaw,
+        'Gryffindor': CharacterHouse.gryffindor,
+        'Slytherin': CharacterHouse.slytherin,
+        'Hufflepuff': CharacterHouse.hufflepuff,
       };
 
       return stringMap[value] ?? CharacterHouse.other;

@@ -23,7 +23,6 @@ class CharacterCard extends StatelessWidget {
     return Container(
       width: AppSizes.s152,
       height: AppSizes.s408,
-      // clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.yellow,

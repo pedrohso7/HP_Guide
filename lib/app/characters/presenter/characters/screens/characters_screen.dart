@@ -16,6 +16,25 @@ class CharactersScreen extends StatelessWidget {
   final VoidCallback onPressCharacter;
   final List<Character> characters;
 
+  List<Character> filterByCharacterHouse(CharacterHouse house) =>
+      characters.where((e) => e.house == house).toList();
+
+  List<Character> filterByCharacterCategory(CharacterCategory category) =>
+      characters.where((e) => e.category == category).toList();
+
+  List<Character> filterBySection(String section) {
+    final stringMap = <String, List<Character>>{
+      'Estudantes': filterByCharacterCategory(CharacterCategory.student),
+      'Funcionários': filterByCharacterCategory(CharacterCategory.staff),
+      'Casa Grifinória': filterByCharacterHouse(CharacterHouse.gryffindor),
+      'Casa Sonserina': filterByCharacterHouse(CharacterHouse.slytherin),
+      'Casa Corvinal': filterByCharacterHouse(CharacterHouse.ravenclaw),
+      'Casa Lufa-Lufa': filterByCharacterHouse(CharacterHouse.hufflepuff),
+    };
+
+    return stringMap[section]!;
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
@@ -40,7 +59,7 @@ class CharactersScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return CharactersSection(
                   headerTitle: sections[index],
-                  characters: characters,
+                  characters: filterBySection(sections[index]),
                   onPressSeeAllButton: () => {},
                   onPressCharacter: () => {},
                 );
