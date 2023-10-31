@@ -1,6 +1,6 @@
 {
-    "name": "translator_ia",
-    "short_name": "translator_ia",
+    "name": "hp_guide",
+    "short_name": "hp_guide",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

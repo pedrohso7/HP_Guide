@@ -1,4 +1,4 @@
-package com.example.translator_ia
+package com.example.hp_guide
 
 import io.flutter.embedding.android.FlutterActivity
 
