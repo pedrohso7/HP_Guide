@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../constants/theme/colors.dart';
 import '../constants/assets/image_path.dart';
 import '../constants/theme/sizes.dart';
@@ -30,10 +29,7 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
               ),
               onPressed: onPressBackButton,
             )
-          : Icon(
-              MdiIcons.lightningBolt,
-              color: AppColors.primaryColor,
-            ),
+          : const SizedBox.shrink(),
       centerTitle: true,
       title: title != null
           ? Text(

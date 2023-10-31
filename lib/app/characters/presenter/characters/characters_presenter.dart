@@ -36,7 +36,6 @@ class _CharactersPresenter extends State<CharactersPresenter> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: const DefaultAppbar(
-        title: 'Harry Potter Guide',
         withBackButton: false,
       ),
       body: Column(
