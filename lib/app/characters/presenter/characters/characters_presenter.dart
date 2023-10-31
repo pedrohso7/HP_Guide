@@ -6,6 +6,7 @@ import '../../../../core/constants/theme/sizes.dart';
 import '../../../../core/constants/theme/text_style.dart';
 import '../../../../core/widgets/default_appbar.dart';
 import '../../../../core/widgets/default_text_input.dart';
+import '../../domain/entities/character.dart';
 import 'bloc/characters_bloc.dart';
 import 'screens/characters_result_screen.dart';
 import 'screens/characters_screen.dart';
@@ -30,6 +31,9 @@ class _CharactersPresenter extends State<CharactersPresenter> {
 
   void onPressCard(String id) =>
       bloc.add(NavigateToCharacterDetailsPageEvent(id));
+
+  void onPressSeeAllButton(List<Character> characters) =>
+      bloc.add(NavigateToCharacterSectionPageEvent(characters));
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +62,7 @@ class _CharactersPresenter extends State<CharactersPresenter> {
                   return CharactersScreen(
                     characters: state.allCharacters,
                     onTapCharacter: onPressCard,
+                    onPressSeeAllButton: onPressSeeAllButton,
                   );
                 }
                 if (state is CharactersSearch) {

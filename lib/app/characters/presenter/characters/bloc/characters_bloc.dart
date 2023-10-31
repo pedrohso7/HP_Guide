@@ -30,6 +30,10 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       if (event is NavigateToCharacterDetailsPageEvent) {
         _handleNavigateToCharacterDetailsPageEvent(event);
       }
+      if (event is NavigateToCharacterSectionPageEvent) {
+        _handleNavigateToCharacterSectionPageEvent(
+            state as CharactersDefault, event);
+      }
     });
   }
 
@@ -87,5 +91,12 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   Future<void> _handleNavigateToCharacterDetailsPageEvent(
       NavigateToCharacterDetailsPageEvent event) async {
     Modular.to.pushNamed('${AppRoutesPaths.characterDetails}/${event.id}');
+  }
+
+  Future<void> _handleNavigateToCharacterSectionPageEvent(
+      CharactersDefault state,
+      NavigateToCharacterSectionPageEvent event) async {
+    Modular.to.pushNamed(AppRoutesPaths.charactersSection,
+        arguments: event.characters);
   }
 }

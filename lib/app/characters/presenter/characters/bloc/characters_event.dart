@@ -23,3 +23,8 @@ class NavigateToCharacterDetailsPageEvent extends CharactersEvent {
   final String id;
   const NavigateToCharacterDetailsPageEvent(this.id);
 }
+
+class NavigateToCharacterSectionPageEvent extends CharactersEvent {
+  final List<Character> characters;
+  const NavigateToCharacterSectionPageEvent(this.characters);
+}

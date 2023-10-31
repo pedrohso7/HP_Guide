@@ -9,9 +9,11 @@ class CharactersScreen extends StatelessWidget {
     Key? key,
     required this.characters,
     required this.onTapCharacter,
+    required this.onPressSeeAllButton,
   }) : super(key: key);
 
   final Function(String) onTapCharacter;
+  final Function(List<Character>) onPressSeeAllButton;
   final List<Character> characters;
 
   static const List<String> _sections = [
@@ -56,10 +58,12 @@ class CharactersScreen extends StatelessWidget {
             child: ListView.separated(
               itemCount: _sections.length,
               itemBuilder: (context, index) {
+                final filteredCharacters = _filterBySection(_sections[index]);
                 return CharactersSection(
                   headerTitle: _sections[index],
-                  characters: _filterBySection(_sections[index]),
-                  onPressSeeAllButton: () => {},
+                  characters: filteredCharacters,
+                  onPressSeeAllButton: () =>
+                      onPressSeeAllButton(filteredCharacters),
                   onTapCharacter: onTapCharacter,
                 );
               },

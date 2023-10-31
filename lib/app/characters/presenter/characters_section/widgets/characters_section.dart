@@ -26,6 +26,7 @@ class CharactersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
     return SectionCard(
+      image: '',
       title: headerTitle,
       actions: [
         TextButton(
