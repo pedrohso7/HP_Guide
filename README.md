@@ -151,7 +151,7 @@ Dessa forma é possível adicionar apenas as dependências necessárias e o modu
 <img alt="Search View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/d3c9f365-bc45-4df3-b0f5-a38cb8bb9bdb" width="300"/>
           <img alt="Personagens View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/c6436d29-fc3c-4210-9473-161f9fa5b2c2" width="300"/>
 <img alt="Details 1 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/af2a9e9a-26f4-4a5b-bd62-63f9f294c0d3" width="300"/>
-          <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/69475056-e918-4ca0-bc1f-df175e908d62" width="300"/>
+          <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/6be309c0-53ce-4d30-af4f-264e4ceffa0b" width="300"/>
 </p>
 
 ## ✦ Utilização
