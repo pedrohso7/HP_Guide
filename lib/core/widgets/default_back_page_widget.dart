@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../constants/theme/colors.dart';
 import '../constants/theme/sizes.dart';
 import '../constants/theme/text_style.dart';
+import '../extensions/sized_box_extension.dart';
 
 class DefaultBackPageWidget extends StatelessWidget {
   final String title;
@@ -21,33 +21,19 @@ class DefaultBackPageWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Expanded(
-            flex: 2,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(50),
-              onTap: onTap,
-              child: const Icon(
-                Icons.chevron_left,
-                color: Colors.black54,
-                size: AppSizes.s40,
-              ),
+          InkWell(
+            borderRadius: BorderRadius.circular(50),
+            onTap: onTap,
+            child: const Icon(
+              Icons.chevron_left,
+              color: Colors.black54,
+              size: AppSizes.s40,
             ),
           ),
-          Expanded(
-            flex: 9,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: AppColors.black,
-                    fontSize: AppFontSizes.s20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+          HorizontalSpace.s16,
+          Text(
+            title,
+            style: AppTextStyles.title,
           ),
         ],
       ),

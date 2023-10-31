@@ -2,7 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../core/constants/routes/routes.dart';
 import '../core/platform/hp_api_client.dart';
-import 'home/home_module.dart';
+import 'characters/characters_module.dart';
 
 class AppModule extends Module {
   // Injeções globais
@@ -14,6 +14,6 @@ class AppModule extends Module {
   // Rotas
   @override
   void routes(r) {
-    r.module(AppRoutesNames.home, module: HomeModule());
+    r.module(AppRoutesNames.characters, module: CharactersModule());
   }
 }
