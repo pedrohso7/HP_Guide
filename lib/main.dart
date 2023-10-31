@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'app/app_module.dart';
 import 'app/characters/presenter/character_details/bloc/character_details_bloc.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => Modular.get<CharacterDetailsBloc>()),
       ],
       child: MaterialApp.router(
-        builder: EasyLoading.init(),
         title: 'HP_Guide',
         routerConfig: Modular.routerConfig,
       ),
