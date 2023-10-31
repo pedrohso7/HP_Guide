@@ -5,6 +5,8 @@ import '../../../../../core/constants/theme/sizes.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../../../core/widgets/default_back_page_widget.dart';
 import '../../../domain/entities/character.dart';
+import '../widgets/wand_section.dart';
+import '../widgets/extra_info_section.dart';
 
 class CharacterDetailsScreen extends StatelessWidget {
   const CharacterDetailsScreen({
@@ -21,29 +23,41 @@ class CharacterDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: sizes.width,
       height: sizes.height,
-      // padding: const EdgeInsets.all(AppSizes.s16),
-      child: Stack(
-        children: [
-          AnimatedHouseBanner(
-            house: character.house!,
-            startAnimation: startAnimation,
-          ),
-          Column(
-            children: [
-              DefaultBackPageWidget(
-                title: 'Details',
-                onTap: onTapBack,
-              ),
-              VerticalSpace.s160,
-              CharacterAvatar(image: character.image!),
-              VerticalSpace.s16,
-              Text(character.name!),
-            ],
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Stack(
+          children: [
+            AnimatedHouseBanner(
+              house: character.house!,
+              startAnimation: startAnimation,
+            ),
+            Column(
+              children: [
+                DefaultBackPageWidget(
+                  title: 'Details',
+                  onTap: onTapBack,
+                ),
+                VerticalSpace.s144,
+                CharacterAvatar(image: character.image!),
+                VerticalSpace.s16,
+                Text(character.name!),
+                VerticalSpace.s16,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+                  child: WandSection(wand: character.wand!),
+                ),
+                VerticalSpace.s16,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
+                  child: ExtraInfoSection(character: character),
+                ),
+                VerticalSpace.s16,
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -90,6 +104,17 @@ class AnimatedHouseBanner extends StatelessWidget {
   final CharacterHouse house;
   final bool startAnimation;
 
+  getImageByHouse() {
+    final map = <CharacterHouse, String>{
+      CharacterHouse.gryffindor: AppImages.gryffindorBannerImagePath,
+      CharacterHouse.slytherin: AppImages.slytherinBannerImagePath,
+      CharacterHouse.ravenclaw: AppImages.ravenclawBannerImagePath,
+      CharacterHouse.hufflepuff: AppImages.hufflepufsBannerImagePath,
+    };
+
+    return map[house] ?? AppImages.hufflepufsBannerImagePath;
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
@@ -97,7 +122,7 @@ class AnimatedHouseBanner extends StatelessWidget {
       curve: Curves.linear,
       duration: const Duration(milliseconds: 1000),
       width: sizes.width,
-      height: startAnimation ? sizes.height / 2.4 : 0,
+      height: startAnimation ? sizes.height / 2.55 : 0,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(AppSizes.s24),
@@ -110,7 +135,7 @@ class AnimatedHouseBanner extends StatelessWidget {
           bottomLeft: Radius.circular(AppSizes.s24),
         ),
         child: Image.asset(
-          AppImages.gryffindorBannerImagePath,
+          getImageByHouse(),
           fit: BoxFit.fill,
         ),
       ),

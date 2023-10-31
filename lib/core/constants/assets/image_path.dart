@@ -1,6 +1,8 @@
 class AppImages {
   AppImages._();
   static const String logoPath = 'lib/core/assets/images/logo.png';
+  static const String wand = 'lib/core/assets/images/magic-wand.png';
+  static const String info = 'lib/core/assets/images/warning.png';
 
   //House mascot's
   static const String eagleImagePath =
@@ -15,7 +17,7 @@ class AppImages {
   static const String ravenclawBannerImagePath =
       'lib/core/assets/images/houses/ravenclaw_banner.jpeg';
   static const String hufflepufsBannerImagePath =
-      'lib/core/assets/images/houses/hufflepufs_banner.jpeg';
+      'lib/core/assets/images/houses/hufflepuff _banner.jpeg';
   static const String gryffindorBannerImagePath =
       'lib/core/assets/images/houses/gryffindor_banner.jpeg';
   static const String slytherinBannerImagePath =
