@@ -53,7 +53,7 @@ class CharacterModel extends Character {
       },
       'patronus': patronus,
       'hogwartsStudent': category == CharacterCategory.student,
-      'hogwartsStaff': category == CharacterCategory.student,
+      'hogwartsStaff': category == CharacterCategory.staff,
       'actor': actorName,
       'image': image,
     };

@@ -34,9 +34,9 @@ class CharactersRemoteDataSource implements ICharactersRemoteDataSource {
   @override
   Future<Character> getCharacterById(String id) async {
     try {
-      final Response result = await client.dio.get('characters/$id');
+      final Response result = await client.dio.get('character/$id');
 
-      return CharacterModel.fromMap(result.data);
+      return CharacterModel.fromMap(result.data[0]);
     } catch (_) {
       throw RemoteClientException('Erro ao realizar consulta');
     }

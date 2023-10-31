@@ -11,11 +11,8 @@ class CharacterDetailsBloc
     extends Bloc<CharacterDetailsEvent, CharacterDetailsState> {
   static CharacterDetailsBloc get(context) => BlocProvider.of(context);
   final GetCharacterById _getCharacterById;
-  // final GetCharacterDetailsByHouse _getCharacterDetailsByHouse;
-  CharacterDetailsBloc(
-    this._getCharacterById,
-    // this._getCharacterDetailsByHouse,
-  ) : super(CharacterDetailsInitial()) {
+  CharacterDetailsBloc(this._getCharacterById)
+      : super(CharacterDetailsInitial()) {
     on<CharacterDetailsEvent>((event, emit) async {
       if (event is FetchCharacterDetailsEvent) {
         await _handleFetchCharacterDetailsEvent(event, emit);
