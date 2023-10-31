@@ -117,7 +117,7 @@ class AnimatedHouseBanner extends StatelessWidget {
       CharacterHouse.hufflepuff: AppImages.hufflepufsBannerImagePath,
     };
 
-    return map[house] ?? AppImages.noPhoto;
+    return map[house] ?? AppImages.hogwarts;
   }
 
   @override

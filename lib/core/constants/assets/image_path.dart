@@ -4,6 +4,7 @@ class AppImages {
   static const String wand = 'lib/core/assets/images/magic-wand.png';
   static const String info = 'lib/core/assets/images/warning.png';
   static const String noPhoto = 'lib/core/assets/images/no_photo.jpg';
+  static const String hogwarts = 'lib/core/assets/images/hogwarts.jpg';
 
   //House mascot's
   static const String eagleImagePath =
