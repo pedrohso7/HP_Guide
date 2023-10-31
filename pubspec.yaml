@@ -29,4 +29,5 @@ flutter:
 
   assets:
     - lib/core/assets/images/
+    - lib/core/assets/images/houses/
     - .env
