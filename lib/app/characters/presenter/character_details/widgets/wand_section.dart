@@ -14,55 +14,59 @@ class WandSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(AppSizes.s16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSizes.s8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.12),
-            blurRadius: 18,
-            offset: const Offset(0, 1),
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.14),
-            blurRadius: 10,
-            offset: const Offset(0, 6),
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.20),
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-            spreadRadius: -1,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SectionHeader(
-            title: 'Varinha',
-          ),
-          Builder(builder: (context) {
-            if (wand.props.isEmpty) {
-              return const Row(
+    return Visibility(
+      visible:
+          wand.core!.isNotEmpty && wand.core!.isNotEmpty && wand.size != null,
+      child: Container(
+        padding: const EdgeInsets.all(AppSizes.s16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(AppSizes.s8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.12),
+              blurRadius: 18,
+              offset: const Offset(0, 1),
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.14),
+              blurRadius: 10,
+              offset: const Offset(0, 6),
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.20),
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+              spreadRadius: -1,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SectionHeader(
+              title: 'Varinha',
+            ),
+            Builder(builder: (context) {
+              if (wand.props.isEmpty) {
+                return const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text('Personagem não possui varinha'),
+                  ],
+                );
+              }
+              return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Personagem não possui varinha'),
+                  Text(wand.core!),
+                  Text(wand.wood!),
+                  Text(wand.size.toString()),
                 ],
               );
-            }
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(wand.core!),
-                Text(wand.wood!),
-                Text(wand.size.toString()),
-              ],
-            );
-          }),
-        ],
+            }),
+          ],
+        ),
       ),
     );
   }
