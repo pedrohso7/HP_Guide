@@ -13,7 +13,7 @@ class CharacterDetailsBloc
   static CharacterDetailsBloc get(context) => BlocProvider.of(context);
   final GetCharacterById _getCharacterById;
   CharacterDetailsBloc(this._getCharacterById)
-      : super(const CharacterDetailsDefault(Character(), false)) {
+      : super(CharacterDetailsInitial()) {
     on<CharacterDetailsEvent>((event, emit) async {
       if (event is FetchCharacterDetailsEvent) {
         await _handleFetchCharacterDetailsEvent(event, emit);
