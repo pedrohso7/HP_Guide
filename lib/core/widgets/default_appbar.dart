@@ -18,31 +18,29 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.primaryColor,
-      leading: Padding(
-        padding: const EdgeInsets.all(AppSizes.s8),
-        child: (withBackButton == true)
-            ? IconButton(
-                icon: const Icon(
-                  Icons.chevron_left,
-                  size: AppSizes.s32,
-                  color: AppColors.white,
-                ),
-                onPressed: onPressBackButton,
-              )
-            : const CircleAvatar(
-                backgroundColor: AppColors.white,
-                child: Icon(
-                  Icons.emoji_objects,
-                  color: AppColors.primaryColor,
-                ),
+      backgroundColor: AppColors.darkColor,
+      leading: (withBackButton == true)
+          ? IconButton(
+              splashRadius: AppFontSizes.s24,
+              icon: const Icon(
+                Icons.chevron_left,
+                size: AppSizes.s32,
+                color: AppColors.white,
               ),
-      ),
+              onPressed: onPressBackButton,
+            )
+          : const CircleAvatar(
+              backgroundColor: AppColors.white,
+              child: Icon(
+                Icons.thunderstorm,
+                color: AppColors.darkColor,
+              ),
+            ),
       centerTitle: true,
       title: title != null
           ? Text(
               title!,
-              style: AppTextStyles.subTitle,
+              style: AppTextStyles.subtitle,
             )
           : Image.asset(
               AppImages.logoPath,

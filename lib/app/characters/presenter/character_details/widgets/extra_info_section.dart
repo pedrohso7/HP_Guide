@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/assets/image_path.dart';
+import '../../../../../core/constants/theme/colors.dart';
 import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../domain/entities/character.dart';
 
@@ -63,8 +65,8 @@ class ExtraInfoSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSizes.s16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSizes.s8),
+        color: AppColors.cardBackgroundColor,
+        borderRadius: BorderRadius.circular(AppSizes.s16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
@@ -136,9 +138,7 @@ class SectionHeader extends StatelessWidget {
             HorizontalSpace.s16,
             Text(
               title,
-              // style: context.displayMedium?.copyWith(
-              //   color: AppColors.pageTitle,
-              // ),
+              style: AppTextStyles.title,
             ),
           ],
         ),
@@ -167,8 +167,14 @@ class InfoRow extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(mapKey),
-              Text(value),
+              Text(
+                mapKey,
+                style: AppTextStyles.defaultTextBold,
+              ),
+              Text(
+                value,
+                style: AppTextStyles.defaultText,
+              ),
             ],
           ),
           VerticalSpace.s8,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/theme/colors.dart';
 import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../domain/entities/character.dart';
 import 'character_card.dart';
@@ -22,10 +24,10 @@ class CharactersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizes = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.all(AppSizes.s8),
+      padding: const EdgeInsets.all(AppSizes.s16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSizes.s8),
+        color: AppColors.cardBackgroundColor,
+        borderRadius: BorderRadius.circular(AppSizes.s16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
@@ -53,7 +55,10 @@ class CharactersSection extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: onPressSeeAllButton,
-                child: const Text('Ver todos'),
+                child: const Text(
+                  'Ver todos',
+                  style: AppTextStyles.defaultYellowText,
+                ),
               )
             ],
           ),
@@ -87,11 +92,9 @@ class SectionHeader extends StatelessWidget {
     super.key,
     required this.title,
     required this.actions,
-    this.description,
   });
 
   final String title;
-  final String? description;
   final List<Widget> actions;
 
   @override
@@ -101,7 +104,7 @@ class SectionHeader extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SectionTitleWidget(title: title, description: description),
+            SectionTitleWidget(title: title),
             Expanded(
               child: Wrap(
                 alignment: WrapAlignment.end,
@@ -126,11 +129,9 @@ class SectionTitleWidget extends StatelessWidget {
   const SectionTitleWidget({
     super.key,
     required this.title,
-    this.description,
   });
 
   final String title;
-  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -139,17 +140,9 @@ class SectionTitleWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          // style: context.displayMedium?.copyWith(
-          //   color: AppColors.pageTitle,
-          // ),
+          style: AppTextStyles.subtitle,
         ),
         HorizontalSpace.s16,
-        Text(
-          description ?? '',
-          // style: context.bodyMedium?.copyWith(
-          //   color: AppColors.pageTitle,
-          // ),
-        ),
       ],
     );
   }

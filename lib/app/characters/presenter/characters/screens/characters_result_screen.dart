@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
 import '../../../domain/entities/character.dart';
 import '../widgets/character_card.dart';
 
@@ -27,7 +28,10 @@ class CharactersSearchScreen extends StatelessWidget {
             child: Builder(builder: (context) {
               if (characters.isEmpty) {
                 return const Center(
-                  child: Text('Nenhum personagem com esse nome encontrado'),
+                  child: Text(
+                    'Nenhum personagem com esse nome encontrado',
+                    style: AppTextStyles.subtitle,
+                  ),
                 );
               }
               return GridView.builder(

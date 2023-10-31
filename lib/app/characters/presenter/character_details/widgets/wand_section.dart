@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/assets/image_path.dart';
+import '../../../../../core/constants/theme/colors.dart';
 import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
 import '../../../domain/entities/character.dart';
 
@@ -20,8 +22,8 @@ class WandSection extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(AppSizes.s16),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(AppSizes.s8),
+          color: AppColors.cardBackgroundColor,
+          borderRadius: BorderRadius.circular(AppSizes.s16),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.12),
@@ -52,16 +54,28 @@ class WandSection extends StatelessWidget {
                 return const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text('Personagem não possui varinha'),
+                    Text(
+                      'Personagem não possui varinha',
+                      style: AppTextStyles.subtitle,
+                    ),
                   ],
                 );
               }
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(wand.core!),
-                  Text(wand.wood!),
-                  Text(wand.size.toString()),
+                  Text(
+                    wand.core!,
+                    style: AppTextStyles.defaultTextBold,
+                  ),
+                  Text(
+                    wand.wood!,
+                    style: AppTextStyles.defaultTextBold,
+                  ),
+                  Text(
+                    wand.size.toString(),
+                    style: AppTextStyles.defaultTextBold,
+                  ),
                 ],
               );
             }),
@@ -99,9 +113,7 @@ class SectionHeader extends StatelessWidget {
             HorizontalSpace.s16,
             Text(
               title,
-              // style: context.displayMedium?.copyWith(
-              //   color: AppColors.pageTitle,
-              // ),
+              style: AppTextStyles.title,
             ),
           ],
         ),

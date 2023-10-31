@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/theme/colors.dart';
 import '../constants/theme/sizes.dart';
 import '../constants/theme/text_style.dart';
 import '../extensions/sized_box_extension.dart';
@@ -34,11 +33,7 @@ class DefaultBackPageWidget extends StatelessWidget {
           HorizontalSpace.s16,
           Text(
             title,
-            style: const TextStyle(
-              color: AppColors.black,
-              fontSize: AppFontSizes.s20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: AppTextStyles.title,
           ),
         ],
       ),

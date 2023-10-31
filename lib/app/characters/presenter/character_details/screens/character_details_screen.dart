@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constants/assets/image_path.dart';
 import '../../../../../core/constants/theme/colors.dart';
 import '../../../../../core/constants/theme/sizes.dart';
+import '../../../../../core/constants/theme/text_style.dart';
 import '../../../../../core/extensions/sized_box_extension.dart';
-import '../../../../../core/widgets/default_back_page_widget.dart';
 import '../../../domain/entities/character.dart';
 import '../widgets/wand_section.dart';
 import '../widgets/extra_info_section.dart';
@@ -12,12 +12,10 @@ class CharacterDetailsScreen extends StatelessWidget {
   const CharacterDetailsScreen({
     Key? key,
     required this.character,
-    required this.onTapBack,
     required this.startAnimation,
   }) : super(key: key);
 
   final Character character;
-  final VoidCallback onTapBack;
   final bool startAnimation;
 
   @override
@@ -35,14 +33,13 @@ class CharacterDetailsScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                DefaultBackPageWidget(
-                  title: 'Details',
-                  onTap: onTapBack,
-                ),
-                VerticalSpace.s144,
+                VerticalSpace.s184,
                 CharacterAvatar(image: character.image!),
                 VerticalSpace.s16,
-                Text(character.name!),
+                Text(
+                  character.name!,
+                  style: AppTextStyles.title,
+                ),
                 VerticalSpace.s16,
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: AppSizes.s16),
@@ -78,7 +75,7 @@ class CharacterAvatar extends StatelessWidget {
       height: AppSizes.s128,
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.yellow,
+          color: AppColors.primaryColor,
           width: AppSizes.s2,
         ),
         borderRadius: BorderRadius.circular(AppSizes.s128),
@@ -130,7 +127,7 @@ class AnimatedHouseBanner extends StatelessWidget {
       curve: Curves.linear,
       duration: const Duration(milliseconds: 1000),
       width: sizes.width,
-      height: startAnimation ? sizes.height / 2.55 : 0,
+      height: startAnimation ? sizes.height / 2.7 : 0,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(AppSizes.s24),

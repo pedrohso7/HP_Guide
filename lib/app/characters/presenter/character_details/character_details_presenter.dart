@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/constants/theme/colors.dart';
 import '../../../../core/constants/theme/text_style.dart';
 import '../../../../core/widgets/default_appbar.dart';
 import 'bloc/character_details_bloc.dart';
@@ -32,9 +33,10 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppbar(
-        title: 'Onboard',
-        withBackButton: false,
+      backgroundColor: AppColors.backgroundColor,
+      appBar: DefaultAppbar(
+        title: 'Detalhes',
+        onPressBackButton: onTapBack,
       ),
       body: BlocBuilder<CharacterDetailsBloc, CharacterDetailsState>(
         builder: (context, state) {
@@ -42,7 +44,6 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
             return CharacterDetailsScreen(
               character: state.character,
               startAnimation: state.startAnimation,
-              onTapBack: onTapBack,
             );
           }
           if (state is CharacterDetailsLoading) {
@@ -54,7 +55,7 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
             return Center(
               child: Text(
                 state.message,
-                style: AppTextStyles.subTitle,
+                style: AppTextStyles.subtitle,
               ),
             );
           }

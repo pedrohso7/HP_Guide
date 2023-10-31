@@ -30,7 +30,7 @@ class CharacterCard extends StatelessWidget {
         height: AppSizes.s264,
         decoration: BoxDecoration(
           border: Border.all(
-            color: AppColors.yellow,
+            color: AppColors.primaryColor,
             width: AppSizes.s2,
           ),
           borderRadius: BorderRadius.circular(AppSizes.s24),
@@ -80,11 +80,7 @@ class CharacterTitleComponent extends StatelessWidget {
         ),
         child: Text(
           name,
-          style: const TextStyle(
-            color: AppColors.yellow,
-            fontWeight: AppFontWeights.bold,
-            fontSize: AppFontSizes.s16,
-          ),
+          style: AppTextStyles.defaultYellowText,
           textAlign: TextAlign.center,
         ),
       ),

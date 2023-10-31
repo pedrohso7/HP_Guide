@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../constants/theme/colors.dart';
 import '../constants/theme/sizes.dart';
+import '../constants/theme/text_style.dart';
 
 class DefaultTextInput extends StatelessWidget {
   final String label;
@@ -24,17 +25,18 @@ class DefaultTextInput extends StatelessWidget {
   final TextAlignVertical? textAlignVertical;
   final TextAlign textAlign;
   final TextInputAction? textInputAction;
+  final TextStyle? textStyle;
 
   const DefaultTextInput({
     Key? key,
     required this.label,
     this.contentPadding = const EdgeInsets.all(AppSizes.s16),
-    this.borderColor = AppColors.yellow,
-    this.fillColor = Colors.white,
+    this.borderColor = AppColors.primaryColor,
+    this.fillColor = AppColors.backgroundColor,
     this.radius = AppSizes.s24,
     this.icon = const Icon(
       Icons.search_outlined,
-      color: AppColors.grey,
+      color: AppColors.white,
       size: AppSizes.s24,
     ),
     this.controller,
@@ -50,11 +52,13 @@ class DefaultTextInput extends StatelessWidget {
     this.textAlignVertical,
     this.textAlign = TextAlign.start,
     this.textInputAction = TextInputAction.done,
+    this.textStyle = AppTextStyles.defaultText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: textStyle,
       onEditingComplete: onEditingComplete,
       textInputAction: textInputAction,
       textAlign: textAlign,
@@ -78,11 +82,7 @@ class DefaultTextInput extends StatelessWidget {
           offset: const Offset(AppSizes.s4, 0),
           child: Text(
             label,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+            style: AppTextStyles.defaultText,
             textScaleFactor: 1,
           ),
         ),

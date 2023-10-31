@@ -5,20 +5,20 @@ import '../constants/theme/colors.dart';
 class DefaultTheme {
   DefaultTheme._();
   static final ThemeData theme = ThemeData(
-    primaryColor: AppColors.yellow,
+    primaryColor: AppColors.primaryColor,
     primaryColorDark: AppColors.black,
     // fontFamily: 'sequel',
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.yellow,
+        backgroundColor: AppColors.primaryColor,
         textStyle: const TextStyle(
           fontFamily: 'sequel',
         ),
       ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      selectedItemColor: AppColors.yellow,
-      selectedIconTheme: IconThemeData(color: AppColors.yellow),
+      selectedItemColor: AppColors.primaryColor,
+      selectedIconTheme: IconThemeData(color: AppColors.primaryColor),
       selectedLabelStyle: textBold,
       unselectedItemColor: Colors.grey,
       unselectedIconTheme: IconThemeData(color: Colors.grey),

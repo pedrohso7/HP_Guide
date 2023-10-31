@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hp_guide/core/constants/theme/colors.dart';
 
 import '../../../../core/constants/theme/sizes.dart';
 import '../../../../core/constants/theme/text_style.dart';
@@ -33,8 +34,9 @@ class _CharactersPresenter extends State<CharactersPresenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: const DefaultAppbar(
-        title: 'Onboard',
+        title: 'Harry Potter Guide',
         withBackButton: false,
       ),
       body: Column(
@@ -74,7 +76,7 @@ class _CharactersPresenter extends State<CharactersPresenter> {
                   return Center(
                     child: Text(
                       state.message,
-                      style: AppTextStyles.subTitle,
+                      style: AppTextStyles.subtitle,
                     ),
                   );
                 }

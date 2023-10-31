@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  AppColors._();
-  static const Color primaryColor = Color.fromARGB(255, 38, 17, 49);
-  static const Color secondaryColor = Color.fromARGB(255, 92, 1, 92);
-  static const Color backgroundColor = Color.fromARGB(255, 236, 236, 236);
-
-  // static const Color secondaryColor = Color(0xFF262329);
-  // static const Color secondaryColor = Color.fromARGB(255, 92, 1, 92);
-  // static const Color defaultBackgroundColor =
-  //     Color.fromARGB(255, 236, 236, 236);
-  // static const Color dark = Color(0xFF2E2E2E);
-  // static const Color darkGrey = Color(0xFF505050);
+  static const Color primaryColor = Color(0xFFffde68);
+  static const Color darkPrimaryColor = Color(0xFFa48b25);
+  static const Color cardBackgroundColor = Color(0xFF2A2A2A);
+  static const Color backgroundColor = Color(0xFF505050);
+  static const Color darkColor = Color(0xFF262329);
+  // static const Color backgroundColor = Color(0xFF2f2d35);
+  //Houses
+  static const Color gryffindorRedColor = Color(0xFF5b0000);
+  static const Color slytherinGreenColor = Color(0xFF005b09);
+  static const Color hufflepuffYellowColor = Color(0xFFbf9e2a);
+  static const Color ravenclawGreenColor = Color(0xFF00355b);
 
   static const Color white = Colors.white;
   static const Color grey = Colors.grey;

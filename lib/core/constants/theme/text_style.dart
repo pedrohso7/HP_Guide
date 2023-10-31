@@ -32,7 +32,7 @@ class AppTextStyles {
     fontSize: AppFontSizes.s18,
   );
 
-  static const TextStyle subTitle = TextStyle(
+  static const TextStyle subtitle = TextStyle(
     color: AppColors.white,
     fontWeight: AppFontWeights.bold,
     fontSize: AppFontSizes.s16,
@@ -57,7 +57,7 @@ class AppTextStyles {
   );
 
   static const TextStyle defaultYellowText = TextStyle(
-    color: AppColors.yellow,
+    color: AppColors.primaryColor,
     fontWeight: AppFontWeights.semiBold,
     fontSize: AppFontSizes.s14,
   );
