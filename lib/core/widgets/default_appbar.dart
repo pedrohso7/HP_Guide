@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../constants/theme/colors.dart';
 import '../constants/assets/image_path.dart';
 import '../constants/theme/sizes.dart';
@@ -29,12 +30,9 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
               ),
               onPressed: onPressBackButton,
             )
-          : const CircleAvatar(
-              backgroundColor: AppColors.white,
-              child: Icon(
-                Icons.thunderstorm,
-                color: AppColors.darkColor,
-              ),
+          : Icon(
+              MdiIcons.lightningBolt,
+              color: AppColors.primaryColor,
             ),
       centerTitle: true,
       title: title != null
