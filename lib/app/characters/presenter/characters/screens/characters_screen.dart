@@ -17,6 +17,7 @@ class CharactersScreen extends StatelessWidget {
   final List<Character> characters;
 
   static const List<String> _sections = [
+    'Todos',
     'Estudantes',
     'Funcionários',
     'Casa Grifinória',
@@ -41,7 +42,7 @@ class CharactersScreen extends StatelessWidget {
       'Casa Lufa-Lufa': _filterByCharacterHouse(CharacterHouse.hufflepuff),
     };
 
-    return stringMap[section]!;
+    return stringMap[section] ?? characters;
   }
 
   @override

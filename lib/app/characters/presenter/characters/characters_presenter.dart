@@ -73,7 +73,8 @@ class _CharactersPresenter extends State<CharactersPresenter> {
                 }
                 if (state is CharactersLoading) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                        color: AppColors.primaryColor),
                   );
                 }
                 if (state is CharactersError) {

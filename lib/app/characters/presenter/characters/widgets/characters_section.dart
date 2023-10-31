@@ -41,9 +41,8 @@ class CharactersSection extends StatelessWidget {
         height: AppSizes.s200,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: characters.length,
+          itemCount: 10,
           itemBuilder: (context, index) {
-            if (index > 10) return const SizedBox.shrink();
             final character = characters[index];
             return CharacterCard(
               name: character.name!,
