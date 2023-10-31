@@ -13,7 +13,7 @@ class CharacterDetailsBloc
   static CharacterDetailsBloc get(context) => BlocProvider.of(context);
   final GetCharacterById _getCharacterById;
   CharacterDetailsBloc(this._getCharacterById)
-      : super(CharacterDetailsInitial()) {
+      : super(const CharacterDetailsDefault(Character(), false)) {
     on<CharacterDetailsEvent>((event, emit) async {
       if (event is FetchCharacterDetailsEvent) {
         await _handleFetchCharacterDetailsEvent(event, emit);
@@ -33,7 +33,7 @@ class CharacterDetailsBloc
       final character =
           await _getCharacterById.call(GetCharacterByIdParams(event.id));
 
-      emit(CharacterDetailsDefault(character));
+      emit(CharacterDetailsDefault(character, true));
     } on RemoteClientException catch (error) {
       emit(CharacterDetailsError(error.message));
     } catch (error) {

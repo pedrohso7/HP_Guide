@@ -41,6 +41,7 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
           if (state is CharacterDetailsDefault) {
             return CharacterDetailsScreen(
               character: state.character,
+              startAnimation: state.startAnimation,
               onTapBack: onTapBack,
             );
           }

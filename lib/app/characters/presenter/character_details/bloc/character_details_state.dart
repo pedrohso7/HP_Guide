@@ -11,12 +11,14 @@ final class CharacterDetailsInitial extends CharacterDetailsState {}
 
 final class CharacterDetailsDefault extends CharacterDetailsState {
   final Character character;
+  final bool startAnimation;
   const CharacterDetailsDefault(
     this.character,
+    this.startAnimation,
   );
 
   @override
-  List<Object> get props => [character];
+  List<Object> get props => [character, startAnimation];
 }
 
 final class CharacterDetailsLoading extends CharacterDetailsState {}
