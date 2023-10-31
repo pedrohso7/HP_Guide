@@ -7,12 +7,8 @@ class CharacterDetailsScreen extends StatelessWidget {
   const CharacterDetailsScreen({
     Key? key,
     required this.character,
-    // required this.onPressLogoutButton,
-    // required this.onPressCharacter,
   }) : super(key: key);
 
-  // final VoidCallback onPressLogoutButton;
-  // final VoidCallback onPressCharacter;
   final Character character;
 
   @override
@@ -22,7 +18,7 @@ class CharacterDetailsScreen extends StatelessWidget {
       width: sizes.width,
       height: sizes.height,
       padding: const EdgeInsets.all(AppSizes.s16),
-      child: Column(
+      child: const Column(
         children: [
           VerticalSpace.s16,
           Text('kxzjnknndmksj'),

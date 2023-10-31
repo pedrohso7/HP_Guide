@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'app/app_module.dart';
+import 'app/characters/presenter/character_details/bloc/character_details_bloc.dart';
 import 'app/characters/presenter/characters/bloc/characters_bloc.dart';
 import 'core/constants/routes/routes.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => Modular.get<CharactersBloc>()),
+        BlocProvider(create: (context) => Modular.get<CharacterDetailsBloc>()),
       ],
       child: MaterialApp.router(
         builder: EasyLoading.init(),

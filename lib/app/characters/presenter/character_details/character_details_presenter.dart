@@ -7,7 +7,11 @@ import 'bloc/character_details_bloc.dart';
 import 'screens/character_details_presenter.dart';
 
 class CharacterDetailsPresenter extends StatefulWidget {
-  const CharacterDetailsPresenter({super.key});
+  const CharacterDetailsPresenter({
+    super.key,
+    required this.id,
+  });
+  final String id;
 
   @override
   State<CharacterDetailsPresenter> createState() =>
@@ -19,7 +23,7 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
   @override
   void initState() {
     bloc = CharacterDetailsBloc.get(context);
-    // bloc.add(FetchCharacterDetailsEvent());
+    bloc.add(FetchCharacterDetailsEvent(widget.id));
     super.initState();
   }
 
@@ -35,8 +39,6 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
           if (state is CharacterDetailsDefault) {
             return CharacterDetailsScreen(
               character: state.character,
-              // onPressLogoutButton: () => {},
-              // onPressCharacter: () => {},
             );
           }
           if (state is CharacterDetailsLoading) {
