@@ -1,5 +1,5 @@
-![smite (7)](https://github.com/pedrohso7/HP_Guide/assets/32853995/b369fea5-718b-43e1-9797-4f6594784a54)
- 
+ ![smite (7)](https://github.com/pedrohso7/HP_Guide/assets/32853995/fa765eec-3c01-474a-b242-2ce61be78425)
+
 <p align="center">
   <a href="#-projeto">Projeto</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -31,7 +31,7 @@ A divisão do app é feita em pasta core e pasta app. A pasta core responsável 
 </p>
 
 <p align="middle">
-<img alt="App content" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/606677c8-a3d3-473c-9e6e-01402056736e" width="200"/>
+<img alt="App content" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/151a50d1-49d7-4c86-b5d7-91f7219190ed" width="200"/>
 </p>
 
 <p align="justify">
@@ -66,7 +66,7 @@ A camada de apresentação do projeto foi dividido em bloc, widgets, screens e p
 </ul>
 
 <p align="middle">
-<img alt="Presentation structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/61b22810-399a-494d-a387-145ae944cd44" width="385"/>
+<img alt="Presentation structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/ba5981e1-697e-4252-b193-22f7b9bae471" width="385"/>
 </p>
 
 <h4>Domain</h4>
@@ -76,7 +76,7 @@ Abaixo da camada de apresentação no diagrama da arquitetura está a camada de 
 </p>
 
 <p align="middle">
-<img alt="Domain structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/f8da46cf-738e-44ec-8782-e5a698c78fcb" width="385"/>
+<img alt="Domain structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/3c2dbc8e-72a7-42ec-88bb-48eac208a1c8" width="385"/>
 </p>
 
 As pastas relatadas são:
@@ -94,7 +94,7 @@ Além disso a camada de dados abstrai as fontes de dados e provê uma interface 
 </p>
 
 <p align="middle">
-<img alt="Data structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/87f8dae2-cc4f-442c-99da-ebc0fc537c0c" width="385"/>
+<img alt="Data structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/59b9c3fb-de74-4003-ae6a-940e84d06ccf" width="385"/>
 </p>
 
 As pastas da camada de dados são:
@@ -110,7 +110,7 @@ Além dos recursos, foi criada uma pasta core que contém todos os componentes c
 </p>
 
 <p align="middle">
-<img alt="Core folder" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/e628b416-299d-410d-bd3e-a89f5155a6f1" width="450"/>
+<img alt="Core folder" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/dbe22b04-acac-4034-84f1-c2b233528750" width="350"/>
 </p>
 
 <h4>Injeção de Dependência</h4>
@@ -120,19 +120,19 @@ A injeção de dependência segue o diagrama do início deste documento, ou seja
 </p>
 
 <p align="middle">
-<img alt="characters feature injection" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/ce151bf8-0c5c-4a8c-b6eb-4f41e4ddc63a" width="350"/>
+<img alt="characters feature injection" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/fda61cb4-4b69-45d4-9b23-6cacf8198f71" width="350"/>
 </p>
 
 <h5>Binds</h5>
 
 <p align="middle">
-<img alt="characters feature binds" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0b865b31-7c3e-4ba8-a4ff-fdb0092b55be" width="500"/>
+<img alt="characters feature binds" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/5783a75a-5850-490c-b886-a939bac8a293" width="400"/>
 </p>
 
 <h5>Routes</h5>
 
 <p align="middle">
-<img alt="characters feature routes" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0f9aa61d-0579-464f-9646-786a56459ca5" width="500"/>
+<img alt="characters feature routes" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/a6e2aaa6-db54-4729-a307-1d3a5f8ec0de" width="500"/>
 </p>
 
 <p align="justify">
@@ -145,10 +145,11 @@ Dessa forma é possível adicionar apenas as dependências necessárias e o modu
 </p>
 
 <p align="middle">    
-<img alt="Home View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0a5bc004-9bdb-4915-964e-57a492cdeb1d" width="300"/>
-<img alt="Search View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/d3c9f365-bc45-4df3-b0f5-a38cb8bb9bdb" width="300"/>
-          <img alt="Personagens View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/c6436d29-fc3c-4210-9473-161f9fa5b2c2" width="300"/>
-<img alt="Details 1 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/af2a9e9a-26f4-4a5b-bd62-63f9f294c0d3" width="300"/>
+ <img alt="Splash View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/4ebcc32e-6235-4cb9-81c2-284e0e3522fe" width="300"/>
+<img alt="Home View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/a5605328-4d2d-4c6f-b821-fd145c523a65" width="300"/>
+<img alt="Search View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/1af90fe2-c816-46b3-9d06-dbb675d53245" width="300"/>
+          <img alt="Personagens View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/b8a0444c-af09-413f-82e3-1c1358e5e015" width="300"/>
+<img alt="Details 1 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/e825c82d-5328-44ca-93b9-a19360da5ccb" width="300"/>
           <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/6be309c0-53ce-4d30-af4f-264e4ceffa0b" width="300"/>
 </p>
 
