@@ -48,7 +48,7 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
           }
           if (state is CharacterDetailsLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: AppColors.primaryColor),
             );
           }
           if (state is CharacterDetailsError) {
