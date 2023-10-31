@@ -126,7 +126,7 @@ A injeção de dependência segue o diagrama do início deste documento, ou seja
 <h5>Binds</h5>
 
 <p align="middle">
-<img alt="characters feature binds" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/5783a75a-5850-490c-b886-a939bac8a293" width="400"/>
+<img alt="characters feature binds" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/fb1f027f-0f0c-433e-92a2-b01fb5f6c237" width="400"/>
 </p>
 
 <h5>Routes</h5>
