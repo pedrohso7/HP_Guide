@@ -11,3 +11,5 @@ class FetchCharacterDetailsEvent extends CharacterDetailsEvent {
   final String id;
   const FetchCharacterDetailsEvent(this.id);
 }
+
+class PopPageEvent extends CharacterDetailsEvent {}

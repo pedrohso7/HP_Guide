@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/theme/text_style.dart';
 import '../../../../core/widgets/default_appbar.dart';
 import 'bloc/character_details_bloc.dart';
-import 'screens/character_details_presenter.dart';
+import 'screens/character_details_screen.dart';
 
 class CharacterDetailsPresenter extends StatefulWidget {
   const CharacterDetailsPresenter({
@@ -27,6 +27,8 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
     super.initState();
   }
 
+  void onTapBack() => bloc.add(PopPageEvent());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +41,7 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
           if (state is CharacterDetailsDefault) {
             return CharacterDetailsScreen(
               character: state.character,
+              onTapBack: onTapBack,
             );
           }
           if (state is CharacterDetailsLoading) {

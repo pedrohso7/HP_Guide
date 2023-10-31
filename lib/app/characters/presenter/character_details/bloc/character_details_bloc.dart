@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/errors/remote_client_exception.dart';
 import '../../../domain/entities/character.dart';
@@ -16,6 +17,9 @@ class CharacterDetailsBloc
     on<CharacterDetailsEvent>((event, emit) async {
       if (event is FetchCharacterDetailsEvent) {
         await _handleFetchCharacterDetailsEvent(event, emit);
+      }
+      if (event is PopPageEvent) {
+        _handlePopPage();
       }
     });
   }
@@ -36,4 +40,6 @@ class CharacterDetailsBloc
       emit(const CharacterDetailsError('Um erro inesperado ocorreu'));
     }
   }
+
+  void _handlePopPage() => Modular.to.pop();
 }
