@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/assets/image_path.dart';
 import '../../../../../core/constants/theme/colors.dart';
 import '../../../../../core/constants/theme/sizes.dart';
 import '../../../../../core/constants/theme/text_style.dart';
@@ -108,10 +109,18 @@ class CharacterImageComponent extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(AppSizes.s24),
-          child: Image.network(
-            image,
-            fit: BoxFit.cover,
-          ),
+          child: Builder(builder: (context) {
+            if (image.isEmpty) {
+              return Image.asset(
+                AppImages.noPhoto,
+                fit: BoxFit.cover,
+              );
+            }
+            return Image.network(
+              image,
+              fit: BoxFit.cover,
+            );
+          }),
         ),
       ),
     );

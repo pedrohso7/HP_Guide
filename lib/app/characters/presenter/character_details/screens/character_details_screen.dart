@@ -30,7 +30,7 @@ class CharacterDetailsScreen extends StatelessWidget {
         child: Stack(
           children: [
             AnimatedHouseBanner(
-              house: character.house!,
+              house: character.house ?? CharacterHouse.other,
               startAnimation: startAnimation,
             ),
             Column(
@@ -85,10 +85,18 @@ class CharacterAvatar extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(AppSizes.s128),
-        child: Image.network(
-          image,
-          fit: BoxFit.cover,
-        ),
+        child: Builder(builder: (context) {
+          if (image.isEmpty) {
+            return Image.asset(
+              AppImages.noPhoto,
+              fit: BoxFit.cover,
+            );
+          }
+          return Image.network(
+            image,
+            fit: BoxFit.cover,
+          );
+        }),
       ),
     );
   }
@@ -112,7 +120,7 @@ class AnimatedHouseBanner extends StatelessWidget {
       CharacterHouse.hufflepuff: AppImages.hufflepufsBannerImagePath,
     };
 
-    return map[house] ?? AppImages.hufflepufsBannerImagePath;
+    return map[house] ?? AppImages.noPhoto;
   }
 
   @override
