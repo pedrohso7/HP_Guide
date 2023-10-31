@@ -90,26 +90,19 @@ class ExtraInfoSection extends StatelessWidget {
           const SectionHeader(
             title: 'Informações extras',
           ),
-          VerticalSpace.s8,
           InfoRow(mapKey: 'Mago', value: getMageText(character.isWizard!)),
-          VerticalSpace.s8,
           InfoRow(
-              mapKey: 'Caregoria', value: getCategoryText(character.category!)),
-          VerticalSpace.s8,
+              mapKey: 'Categoria', value: getCategoryText(character.category!)),
           InfoRow(mapKey: 'Gênero', value: getGenderText(character.gender!)),
-          VerticalSpace.s8,
           InfoRow(mapKey: 'Espécie', value: getSpeciesText(character.species!)),
-          VerticalSpace.s8,
           InfoRow(mapKey: 'Ancestralidade', value: character.ancestry!),
-          VerticalSpace.s8,
           InfoRow(
               mapKey: 'Ano de nascimento',
-              value: character.yearOfBirth!.toString()),
-          VerticalSpace.s8,
+              value: character.yearOfBirth != null
+                  ? character.yearOfBirth.toString()
+                  : ''),
           InfoRow(mapKey: 'Patrono', value: character.patronus!),
-          VerticalSpace.s8,
           InfoRow(mapKey: 'Nome do ator', value: character.actorName!),
-          VerticalSpace.s8,
         ],
       ),
     );
@@ -169,11 +162,16 @@ class InfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: value.isNotEmpty,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Text(mapKey),
-          Text(value),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(mapKey),
+              Text(value),
+            ],
+          ),
+          VerticalSpace.s8,
         ],
       ),
     );
