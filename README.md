@@ -1,7 +1,5 @@
-<p align="middle">
-<img alt="banner" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/2ce44539-1d02-41bb-8d44-223664d81ab9" width="200"/>
-</p>
-          
+![smite (7)](https://github.com/pedrohso7/HP_Guide/assets/32853995/b369fea5-718b-43e1-9797-4f6594784a54)
+ 
 <p align="center">
   <a href="#-projeto">Projeto</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
