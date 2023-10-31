@@ -33,7 +33,7 @@ A divisão do app é feita em pasta core e pasta app. A pasta core responsável 
 </p>
 
 <p align="middle">
-<img alt="App content" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjetoTemplate/assets/32853995/cc383d43-77dc-41be-8a17-48b72d526777" width="200"/>
+<img alt="App content" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/606677c8-a3d3-473c-9e6e-01402056736e" width="200"/>
 </p>
 
 <p align="justify">
@@ -96,7 +96,7 @@ Além disso a camada de dados abstrai as fontes de dados e provê uma interface 
 </p>
 
 <p align="middle">
-<img alt="Data structure" title="App" src="Screenshot_2023-10-31_17-48-58](https://github.com/pedrohso7/HP_Guide/assets/32853995/31e10b81-b8a7-4f0b-9662-5b35803d9e92" width="385"/>
+<img alt="Data structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/87f8dae2-cc4f-442c-99da-ebc0fc537c0c" width="385"/>
 </p>
 
 As pastas da camada de dados são:
@@ -112,7 +112,7 @@ Além dos recursos, foi criada uma pasta core que contém todos os componentes c
 </p>
 
 <p align="middle">
-<img alt="Core folder" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjetoTemplate/assets/32853995/91522a1c-91f6-44d2-9e75-ac839f1d3ddd" width="450"/>
+<img alt="Core folder" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/e628b416-299d-410d-bd3e-a89f5155a6f1" width="450"/>
 </p>
 
 <h4>Injeção de Dependência</h4>
@@ -151,7 +151,7 @@ Dessa forma é possível adicionar apenas as dependências necessárias e o modu
 <img alt="Search View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/d3c9f365-bc45-4df3-b0f5-a38cb8bb9bdb" width="300"/>
           <img alt="Personagens View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/c6436d29-fc3c-4210-9473-161f9fa5b2c2" width="300"/>
 <img alt="Details 1 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/af2a9e9a-26f4-4a5b-bd62-63f9f294c0d3" width="300"/>
-          <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/8425a5ab-2a97-447e-b6f0-7ca7a957aecc" width="300"/>
+          <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/69475056-e918-4ca0-bc1f-df175e908d62" width="300"/>
 </p>
 
 ## ✦ Utilização
