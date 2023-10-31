@@ -1,9 +1,4 @@
-![✪_Clean_Architeture_Mobile_Project](https://user-images.githubusercontent.com/32853995/195160163-43688868-03d8-41cb-8dc9-50f03d52ab14.png)
-
-<div align="center">
-          
-[![GitHub forks](https://img.shields.io/github/forks/pedrohso7/mobileCleanProjectTemplate)](https://github.com/pedrohso7/mobileCleanProjectTemplate/network)
-</div>
+![✪_Clean_Architeture_Mobile_Project](https://github.com/pedrohso7/HP_Guide/assets/32853995/2ce44539-1d02-41bb-8d44-223664d81ab9)
           
 <p align="center">
   <a href="#-project">Project</a>
@@ -19,23 +14,20 @@
 
 ## ✦ Project
 <p align="justify">
-This repository was created to be a mobile project that uses the <a href="https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure">Reso Coder's Flutter Clean Architecture Proposal™</a> using the current most popular technologies and approach's to make an project with a built-in authentication features made using good practices as clean code, SOLID and conventional commits. This project must be the base for my future projects.
+ Esse repositório foi criado para ser um guia a respeito dos personagens de Harry Potter utilizando o padrão de arquitetura <a href="https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure">Reso Coder's Flutter Clean Architecture Proposal™</a> 
+e aplica as mais populares tecnologias e abordagens de um projeto robusto e escalável.
 </p>
 
 ## ✦ Technologies
-This project was made using the tecnologies below:
+As tecnologias utilizadas:
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
-- [Flutter Modular](https://pub.dev/packages/flutter_modular) to dependency injection and routing. This package allows us to use a smart and modularized Structure to inject depencies and define routes. This way we improove understanding of features, faces less breaking changes and improve reuse.
-- [Flutter BLoC](https://pub.dev/packages/flutter_bloc) to the page's state management. BLoC allows for a clear separation between the UI components and the business logic and this helps to organize code and making it more maintainable and testable.
-- [Mockito](https://pub.dev/packages/mockito) as the Mock support to our tests.
-- [Flutter Tests](https://api.flutter.dev/flutter/flutter_test/flutter_test-library.html) the native option to make app unit tests.
-- [Get_Storage](https://pub.dev/packages/get_storage) as our local storage.
-- [Firebase](https://firebase.google.com/docs/reference/rest/auth) Rest API to authentication because we will not need to add any dependency.
+- [Flutter Modular](https://pub.dev/packages/flutter_modular) para injeção de dependência e roteamento. Esse pacote permite utilizar uma estrutura modularizada e inteligente para injetar dependências nas classes e definir as rotas do aplicativo. Dessa forma é possível melhorar o entendimeto das features, lidar com menos breaking changes and melhorar o reuso de componentes.
+- [Flutter BLoC](https://pub.dev/packages/flutter_bloc) para o gerenciamento de estado das páginas do app. O BLoC permite uma separação clara entre os componentes da UI e a lógica de negócios e isso ajuda a organizar o código e torná-lo mais sustentável e testável.
 
 ## ✦ Overview
 <p align="justify">
-This project can be a good start to make your own app. The lib folder comports all our functionalities, being divided in core folder (common resources) and app folder (our features):
+A divisão do app é feita em pasta core e pasta app. A pasta core responsável por armazenar componentes que podem ser compartilhados ao longo do app e a pasta app comporta as features do aplicativo que, neste caso, terá apenas uma:
 </p>
 
 <p align="middle">
@@ -43,7 +35,7 @@ This project can be a good start to make your own app. The lib folder comports a
 </p>
 
 <p align="justify">
-The following content explains how each feature was structured.
+O conteúdo a seguir explica como cada feature foi estruturada:
 </p>
 
 <p align="middle">
@@ -51,110 +43,120 @@ The following content explains how each feature was structured.
 </p>
 
 <p align="justify">
-The auth feature will be used as example across this explanation.
+A feature "characters" será utilizada como exemplo:
 </p>
 
 <h4>Presentation</h4>
 
 <p align="justify">
-In top of flow, we have the presentation layer. It includes the UI components such as widgets, pages and presenters. Futhermore, the layer is responsible for rendering the user interface and handle user actions.
+No topo do fluxo supracitado, temo a camada de apresentação que inclui os widgets, telas e presenters. Além disso é responsável por renderizar a interface do usuário e lidar com as ações do mesmo. 
 
-The presenter separation makes the UI code more maintainable and testable because it removes the Business Logic from the UI behaviour, avoiding coupled code's.
+Essa separação faz com que o código seja testável e de manutenção fácil pois remove as lógicas de negócio do comportamento da UI, evitando um código acoplado. Utilizando o BLoC também ajuda a fazer uma separação ainda melhor do que é um componente da UI e os possíveis eventos.
 </p>
 
 <p align="justify">
-The project presentation layer's are divided in bloc, stateless widget's and the presenter orchestror file, a stateful widget that can uses native Flutter lifecycle and handles all other organisms:
+A camada de apresentação do projeto foi dividido em bloc, widgets, screens e presenter:
 </p>
+
+<ul>
+<li><b>bloc</b>: A pasta bloc para o gerenciamento de estado da página.</li>
+<li><b>screens</b>: A pasta screens contém as possíveis telas que podem ser exibidas (normalmente componentes stateless).</li>
+<li><b>widgets</b>: A de widgets para componentes stateless gerais, especialmente os que podem ser reutilizados entre as telas.</li>
+<li><b>presenter</b>: Arquivo orquestrador que gerencia as páginas e ações disponíveis</li>
+</ul>
 
 <p align="middle">
-<img alt="Presentation structure" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/a89586fc-76b3-41c4-a2fc-adf6b40f7b96" width="385"/>
-</p>
-
-<p align="justify>
-Each feature presentation folder define their own bloc folder. It defines the state variations, action types and the action's handling. The screens and widgets folders provides the stateless widgets available for feature and the "presenter" file is the orchestror.
+<img alt="Presentation structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/61b22810-399a-494d-a387-145ae944cd44" width="385"/>
 </p>
 
 <h4>Domain</h4>
 
 <p align="justify">
-Under the presentation layer on stack flow we've the domain layer. This layer basically contains business logic and entities. It represents the core functionality of the feature and has to be independent of any external elements. Build our domain like this helps to make the business logic independent of the UI and data sources:
+Abaixo da camada de apresentação no diagrama da arquitetura está a camada de domínio que, basicamente, contém toda a lógica de negócio e as entidades. Ela representa as funcionalidades principais da feature e deve ser necessariamente independente de elementos externos. Construir um domínio dessa forma ajuda a lógica de negócio a ser independente da UI e das fontes de dados.  
 </p>
 
 <p align="middle">
-<img alt="Domain structure" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/1a3d65ae-e4c6-49a8-84f6-7a3a8fb8ff50" width="385"/>
+<img alt="Domain structure" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/f8da46cf-738e-44ec-8782-e5a698c78fcb" width="385"/>
 </p>
 
-The related folders are used to:
+As pastas relatadas são:
 <ul>
-<li><b>usecases</b>: Contains the application-specific business rules or use cases. These use cases represent the actions that can be performed within the application.</li>
-<li><b>protocols</b>: Includes the interfaces or abstract classes that define the methods for data operations. These interfaces are implemented in the data layer, in repositories.</li>
-<li><b>entities</b>: Holds the core data models or entities that represent the business objects and data structures used within the feature</li>
+<li><b>usecases</b>: Contém as regras de negócios ou casos de uso específicos do aplicativo. Esses casos de uso representam as ações que podem ser executadas dentro do aplicativo.</li>
+<li><b>protocols</b>: Inclui as interfaces ou classes que definem os métodos para operações de dados. Essas interfaces são implementadas na camada de dados, em repositórios.</li>
+<li><b>entities</b>: Contém os principais modelos de dados ou entidades que representam os objetos de negócios e estruturas de dados usados no recurso</li>
 </ul>
 
 <h4>Data</h4>
-This layer deals with data handling, including data sources, repositories, models and remote data providers. It is responsible for retrieving and storing data from external sources such as databases, APIs, or repositories. It Abstracts the data sources and provides a unified interface to access and manipulate data. By separating data handling from the rest of the application, it allows us to isolate and manage data easier, swap data source if needed and data manipulation without impacting the business logic.
+<p align="justify">
+Essa camada, por sua vez, lida com os dados, incluindo fontes de dados, repositórios e models. É responsável por retornar e armazenar os dados de recursos externos como bancos de dados, API's ou repositórios. 
 
-
-<p align="middle">
-<img alt="Data structure" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/4f5b6351-c3be-4824-9d4b-f9f3042fdaee" width="385"/>
+Além disso a camada de dados abstrai as fontes de dados e provê uma interface unificada para acessar e manipular dados, separando o o processamento de dados do resto da aplicação. Dessa forma conseguimos gerenciar e isolar dados facilmente, trocar dados livremente sem se preocupar em impactar a lógica de negócio.
 </p>
 
-The data folders are:
+<p align="middle">
+<img alt="Data structure" title="App" src="Screenshot_2023-10-31_17-48-58](https://github.com/pedrohso7/HP_Guide/assets/32853995/31e10b81-b8a7-4f0b-9662-5b35803d9e92" width="385"/>
+</p>
+
+As pastas da camada de dados são:
 <ul>
-<li><b>datasources</b>: Contains classes responsible for interacting with remote data sources such as APIs or web services.</li>
-<li><b>repositories</b>: Implements the interfaces defined in the domain layer. These concrete implementations handle data operations and serve as the bridge between the domain layer and external data sources.</li>
-<li><b>models</b>: Holds the data models (derived from domain entities) that represent the data structures used for data manipulation within the application</li>
+<li><b>datasources</b>: Contém classes responsáveis por interagir com fontes de dados remotas, como APIs ou serviços web.</li>
+<li><b>repositories</b>: Implementa as interfaces definidas na camada de domínio. Essas implementações concretas lidam com operações de dados e servem como ponte entre a camada de domínio e fontes de dados externas.</li>
+<li><b>models</b>: Contém os modelos de dados (implementação concreta das entidades de domínio) que representam as estruturas de dados usadas para manipulação de dados dentro do aplicativo</li>
 </ul>
 
 <h4>Core</h4>
-
 <p align="justify">
-Besides the features, I created a core path that contains all shared components used across the application as errors, mixins, extensions, constants and common widgets:
+Além dos recursos, foi criada uma pasta core que contém todos os componentes compartilhados usados na aplicação como erros, mixins, extensões, constantes e widgets comuns:
 </p>
 
 <p align="middle">
 <img alt="Core folder" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/91522a1c-91f6-44d2-9e75-ac839f1d3ddd" width="450"/>
 </p>
 
-<h4>Dependency Injection</h4>
+<h4>Injeção de Dependência</h4>
 
 <p align="justify">
-The dependency injection follows the diagram on the beggining of this document, in other words, datasources are injected on repositories, repositories are injected on usecases and usecases are injected on the presentation. Modular made it easy, fortunately.
-</p>
-
-<p align="justify">
-Is it coincidence?
+A injeção de dependência segue o diagrama do início deste documento, ou seja, as fontes de dados são injetadas nos repositórios, os repositórios são injetados nos casos de uso e os casos de uso são injetados na apresentação. Modular tornou tudo mais fácil, felizmente.
 </p>
 
 <p align="middle">
-<img alt="Auth feature injection" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/742e3ab2-7ea3-4255-86a4-1d28ca8b899a" width="350"/>
+<img alt="characters feature injection" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/62e8cabf-33b3-4b8b-8644-854657463a4a" width="350"/>
 </p>
 
-<h2>Home feature injection example</h2>
+<h5>Exemplo feature characters feature</h5>
+
+<h6>Binds</h6>
 
 <p align="middle">
-<img alt="Auth feature injection" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/8d3aa447-3764-456a-86d0-a1dd2e093099" width="500"/>
+<img alt="characters feature binds" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0b865b31-7c3e-4ba8-a4ff-fdb0092b55be" width="500"/>
+</p>
+
+<h6>Routes</h6>
+
+<p align="middle">
+<img alt="characters feature routes" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0f9aa61d-0579-464f-9646-786a56459ca5" width="500"/>
 </p>
 
 <p align="justify">
-You can implement as dependency just the what you feature needs. Modular will factory and dispose it automatically when the navigation actions triggers something.
+Dessa forma é possível adicionar apenas as dependências necessárias e o modular vai criar e limpar automaticamente os módulos quando alguma ação de navegação for acionada.
 </p>
 
 ## ✦ Implemented Views
 <p align="justify">
-The following images are from the authentication features (Home isn't listed because is just a simple page structure and will be replaced on other projects):
+          As imagens abaixo mostram as telas implementadas no app.
 </p>
 
-<p align="middle">          
-<!-- <img alt="Splash View" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/f6b00ee6-68bf-46b3-a8e8-5713569f71af" width="200"/> -->
-<img alt="Login View" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/a5611dda-bcfe-4ea2-b1ef-83d08e84cf74" width="200"/>
-<img alt="Register View" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/a1f07ea1-8e9a-400b-ace0-888930b8c317" width="200"/>
-<img alt="Reset Password View" title="App" src="https://github.com/pedrohso7/CleanArchitetureMobileProjectTemplate/assets/32853995/77ff5de3-6119-491b-b81c-af3bd224f7a9" width="200"/>
+<p align="middle">    
+<img alt="Home View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/0a5bc004-9bdb-4915-964e-57a492cdeb1d" width="200"/>
+<img alt="Search View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/d3c9f365-bc45-4df3-b0f5-a38cb8bb9bdb" width="200"/>
+          <img alt="Personagens View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/c6436d29-fc3c-4210-9473-161f9fa5b2c2" width="200"/>
+<img alt="Details 1 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/af2a9e9a-26f4-4a5b-bd62-63f9f294c0d3" width="200"/>
+          <img alt="Details 2 View" title="App" src="https://github.com/pedrohso7/HP_Guide/assets/32853995/8425a5ab-2a97-447e-b6f0-7ca7a957aecc" width="200"/>
 </p>
 
 ## ✦ Usage
 <p align="justify">
-To start using this template, fork this repo and start using. Make sure you created your .env on root path following .env.example. You need to follow the Firebase project's configuration configs to get your own firebase web key. After this, run the following command in the root path to start the proceed:
+          Para começar a usar o projeto, tenha certeza de que criou um arquivo .env no diretório raiz seguindo o exemplo no arquivo .env.example. Depois disso, utilize o comando:
 </p>
 
 ```
@@ -162,7 +164,7 @@ flutter pub get
 ```
 
 <p align="justify">
-You got the dependencies and, now, run the app using:
+Agora que obtemos as dependências do projeto, basta rodar com o comando:
 </p>
 
 ```
@@ -170,15 +172,9 @@ flutter run
 ```
 
 <p align="justify">
-Instead of this you can also generate your apk build and run in your own device with:
+Ao invés disso você também pode gerar um build no formato .apk e rodar no seu dispositivo android utilizando:
 </p>
 
 ```
 flutter build apk
 ```
-
-## ✦ Start to use
-
-<p align="justify">
-Just fork it.
-</p>
