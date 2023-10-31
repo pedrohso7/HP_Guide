@@ -8,12 +8,10 @@ class CharactersScreen extends StatelessWidget {
   const CharactersScreen({
     Key? key,
     required this.characters,
-    required this.onPressLogoutButton,
-    required this.onPressCharacter,
+    required this.onTapCharacter,
   }) : super(key: key);
 
-  final VoidCallback onPressLogoutButton;
-  final VoidCallback onPressCharacter;
+  final Function(String) onTapCharacter;
   final List<Character> characters;
 
   static const List<String> _sections = [
@@ -62,7 +60,7 @@ class CharactersScreen extends StatelessWidget {
                   headerTitle: _sections[index],
                   characters: _filterBySection(_sections[index]),
                   onPressSeeAllButton: () => {},
-                  onPressCharacter: () => {},
+                  onTapCharacter: onTapCharacter,
                 );
               },
               separatorBuilder: (context, index) => VerticalSpace.s24,

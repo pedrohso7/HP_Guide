@@ -10,13 +10,13 @@ class CharactersSection extends StatelessWidget {
     required this.headerTitle,
     required this.characters,
     required this.onPressSeeAllButton,
-    required this.onPressCharacter,
+    required this.onTapCharacter,
   });
 
   final String headerTitle;
   final List<Character> characters;
   final VoidCallback onPressSeeAllButton;
-  final VoidCallback onPressCharacter;
+  final Function(String) onTapCharacter;
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +65,12 @@ class CharactersSection extends StatelessWidget {
               itemCount: characters.length,
               itemBuilder: (context, index) {
                 if (index > 10) return const SizedBox.shrink();
+                final character = characters[index];
                 return CharacterCard(
-                  name: characters[index].name!,
-                  image: characters[index].image!,
-                  house: characters[index].house!,
-                  onTap: onPressCharacter,
+                  name: character.name!,
+                  image: character.image!,
+                  house: character.house!,
+                  onTap: () => onTapCharacter(character.id!),
                 );
               },
               separatorBuilder: (context, index) => HorizontalSpace.s8,

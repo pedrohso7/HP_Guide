@@ -7,9 +7,11 @@ class CharactersSearchScreen extends StatelessWidget {
   const CharactersSearchScreen({
     Key? key,
     required this.characters,
+    required this.onTapCharacter,
   }) : super(key: key);
 
   final List<Character> characters;
+  final Function(String) onTapCharacter;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,12 @@ class CharactersSearchScreen extends StatelessWidget {
                 ),
                 itemCount: characters.length,
                 itemBuilder: (context, index) {
+                  final character = characters[index];
                   return CharacterCard(
-                    name: characters[index].name!,
-                    house: characters[index].house!,
-                    image: characters[index].image!,
-                    onTap: () => {},
+                    name: character.name!,
+                    house: character.house!,
+                    image: character.image!,
+                    onTap: () => onTapCharacter(character.id!),
                   );
                 },
               );

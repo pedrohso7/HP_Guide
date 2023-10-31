@@ -27,6 +27,9 @@ class _CharactersPresenter extends State<CharactersPresenter> {
 
   void onSearch(String value) => bloc.add(SearchCharactersByName(value));
 
+  void onPressCard(String id) =>
+      bloc.add(NavigateToCharacterDetailsPageEvent(id));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,13 +56,13 @@ class _CharactersPresenter extends State<CharactersPresenter> {
                 if (state is CharactersDefault) {
                   return CharactersScreen(
                     characters: state.allCharacters,
-                    onPressLogoutButton: () => {},
-                    onPressCharacter: () => {},
+                    onTapCharacter: onPressCard,
                   );
                 }
                 if (state is CharactersSearch) {
                   return CharactersSearchScreen(
                     characters: state.onScreenCharacters,
+                    onTapCharacter: onPressCard,
                   );
                 }
                 if (state is CharactersLoading) {
