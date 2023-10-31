@@ -7,6 +7,8 @@ sealed class CharactersState extends Equatable {
   List<Object> get props => [];
 }
 
+final class CharactersInitial extends CharactersState {}
+
 final class CharactersDefault extends CharactersState {
   final List<Character> allCharacters;
   const CharactersDefault(

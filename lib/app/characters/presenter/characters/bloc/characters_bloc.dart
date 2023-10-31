@@ -7,7 +7,6 @@ import '../../../../../core/usecases/usecase.dart';
 import '../../../../../core/constants/routes/routes.dart';
 import '../../../domain/entities/character.dart';
 import '../../../domain/usecases/get_all_characters.dart';
-// import '../../../domain/usecases/get_characters_by_house.dart';
 
 part 'characters_event.dart';
 part 'characters_state.dart';
@@ -15,11 +14,9 @@ part 'characters_state.dart';
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   static CharactersBloc get(context) => BlocProvider.of(context);
   final GetAllCharacters _getAllCharactersUseCase;
-  // final GetCharactersByHouse _getCharactersByHouse;
   CharactersBloc(
     this._getAllCharactersUseCase,
-    // this._getCharactersByHouse,
-  ) : super(const CharactersDefault([])) {
+  ) : super(CharactersInitial()) {
     on<CharactersEvent>((event, emit) async {
       if (event is FetchCharactersEvent) {
         await _handleFetchCharactersEvent(emit);
