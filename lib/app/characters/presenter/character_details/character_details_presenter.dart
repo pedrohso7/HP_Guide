@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constants/theme/colors.dart';
 import '../../../../core/constants/theme/text_style.dart';
+import '../../../../core/extensions/sized_box_extension.dart';
 import '../../../../core/widgets/default_appbar.dart';
+import '../../../../core/widgets/default_button.dart';
 import 'bloc/character_details_bloc.dart';
 import 'screens/character_details_screen.dart';
 
@@ -30,6 +32,8 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
 
   void onTapBack() => bloc.add(PopPageEvent());
 
+  void fetchCharacters() => bloc.add(FetchCharacterDetailsEvent(widget.id));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,11 +56,19 @@ class _CharacterDetailsPresenter extends State<CharacterDetailsPresenter> {
             );
           }
           if (state is CharacterDetailsError) {
-            return Center(
-              child: Text(
-                state.message,
-                style: AppTextStyles.subtitle,
-              ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  state.message,
+                  style: AppTextStyles.subtitle,
+                ),
+                VerticalSpace.s16,
+                DefaultButton(
+                  onPressed: fetchCharacters,
+                  label: 'Tentar novamente',
+                ),
+              ],
             );
           }
 
