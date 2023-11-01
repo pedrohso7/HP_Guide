@@ -9,12 +9,12 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-telas-implementadas">Telas Implementadas</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-utilizacao">Utilização</a>
+  <a href="#-utilização">Utilização</a>
 </p>
 
 ## ✦ Projeto
 <p align="justify">
- Esse repositório foi criado para ser um guia a respeito dos personagens de Harry Potter utilizando o padrão de arquitetura <a href="https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-projeto-structure">Reso Coder's Flutter Clean Architecture Proposal™</a> 
+ Esse repositório foi criado para ser um guia a respeito dos personagens de Harry Potter utilizando o padrão de arquitetura <a href="https://resocoder.com/flutter-clean-architecture-tdd/">Reso Coder's Flutter Clean Architecture Proposal™</a> 
 e aplica as mais populares tecnologias e abordagens de um projeto robusto e escalável.
 </p>
 
